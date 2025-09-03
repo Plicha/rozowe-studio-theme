@@ -3,7 +3,7 @@ name: Deploy WP theme via FTP
 on:
   push:
     branches: [ main ]
-    # (opcjonalnie) odpalaj tylko gdy zmieniasz pliki motywu:
+    # (opcjonalnie) odpalaj tylko gdy zmienia się motyw:
     # paths:
     #   - '**.php'
     #   - 'assets/**'
@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Jeśli nie używasz Vite/Node – usuń trzy poniższe kroki.
+      # Usuń 3 kroki z Node, jeśli nie budujesz assetów
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -35,12 +35,12 @@ jobs:
         if: ${{ hashFiles('package-lock.json') != '' }}
         run: npm run build
 
-      - name: Deploy via ftp
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           protocol: ftp
           server: ${{ secrets.FTP_HOST }}
-          port: ${{ secrets.FTP_PORT }}
+          port: ${{ secrets.FTP_PORT }}           # zwykle 21
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
 
@@ -48,7 +48,7 @@ jobs:
           local-dir: ./
 
           # katalog docelowy na serwerze (względem root FTP)
-          server-dir: ${{ secrets.SERVER_DIR }}
+          server-dir: ${{ secrets.SERVER_DIR }}   # np. public_html/wp-content/themes/zuzia/
 
           exclude: |
             **/.git**
