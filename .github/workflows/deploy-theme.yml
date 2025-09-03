@@ -1,0 +1,67 @@
+name: Deploy WP theme via FTP
+
+on:
+  push:
+    branches: [ main ]
+    # (opcjonalnie) odpalaj tylko gdy zmieniasz pliki motywu:
+    # paths:
+    #   - '**.php'
+    #   - 'assets/**'
+    #   - 'src/**'
+    #   - 'style.css'
+    #   - 'theme.json'
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Jeśli nie używasz Vite/Node – usuń trzy poniższe kroki.
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install deps
+        if: ${{ hashFiles('package-lock.json') != '' }}
+        run: npm ci
+
+      - name: Build
+        if: ${{ hashFiles('package-lock.json') != '' }}
+        run: npm run build
+
+      - name: Deploy via ftp
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          protocol: ftp
+          server: ${{ secrets.FTP_HOST }}
+          port: ${{ secrets.FTP_PORT }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          # katalog lokalny do wysyłki (root repo)
+          local-dir: ./
+
+          # katalog docelowy na serwerze (względem root FTP)
+          server-dir: ${{ secrets.SERVER_DIR }}
+
+          exclude: |
+            **/.git**
+            **/.github/**
+            **/.vscode/**
+            **/node_modules/**
+            **/src/**
+            **/*.map
+            package*.json
+            pnpm-lock.yaml
+            yarn.lock
+            vite.config.*
+            webpack*.js
+            .editorconfig
+            .eslint*
+            .prettier*
