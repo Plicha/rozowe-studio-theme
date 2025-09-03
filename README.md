@@ -73,3 +73,4 @@ The project is configured to work with Git. Changes in the `wp-content/` directo
 - The `wp-content/` directory is mapped locally for easy access to themes and plugins
 - The database is stored in a Docker volume 
 
+
