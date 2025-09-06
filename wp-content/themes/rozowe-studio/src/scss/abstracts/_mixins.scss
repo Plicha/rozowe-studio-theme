@@ -1,4 +1,14 @@
-// Mixins
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+// Import variables
+@import 'variables';
+
+// =============================================================================
+// FLEXBOX MIXINS
+// =============================================================================
+
 @mixin flex-center {
     display: flex;
     align-items: center;
@@ -11,7 +21,21 @@
     justify-content: space-between;
 }
 
-@mixin transition($property: all, $duration: 0.3s, $easing: ease) {
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// =============================================================================
+// TRANSITION MIXINS
+// =============================================================================
+
+@mixin transition($property: all, $duration: $transition-normal, $easing: ease-in-out) {
     transition: $property $duration $easing;
 }
 
@@ -23,44 +47,154 @@
     }
 }
 
-@mixin button-style($bg-color: $primary-color, $text-color: $background-color) {
+// =============================================================================
+// BUTTON MIXINS
+// =============================================================================
+
+@mixin button-style($bg-color: $color-primary, $color-text-primary: $color-white) {
     background-color: $bg-color;
-    color: $text-color;
+    color: $color-text-primary;
     border: 2px solid transparent;
-    padding: 12px 24px;
+    padding: $spacing-sm $spacing-lg;
     border-radius: $border-radius-md;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     text-decoration: none;
     display: inline-block;
     @include transition;
+    cursor: pointer;
     
     &:hover {
-        background-color: $primary-dark;
+        background-color: $color-primary-dark;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(58, 4, 15, 0.3);
+        box-shadow: $shadow-md;
+    }
+    
+    &:focus {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
     }
 }
+
+@mixin button-outline($color-border: $color-primary, $color-text-primary: $color-primary) {
+    background-color: transparent;
+    color: $color-text-primary;
+    border: 2px solid $color-border;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+    display: inline-block;
+    @include transition;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: $color-border;
+        color: $color-white;
+        transform: translateY(-2px);
+        box-shadow: $shadow-md;
+    }
+    
+    &:focus {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+    }
+}
+
+// =============================================================================
+// LAYOUT MIXINS
+// =============================================================================
 
 @mixin container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 $spacing-lg;
+    
+    @media (min-width: $breakpoint-lg) {
+        padding: 0 $spacing-xl;
+    }
+}
+
+@mixin section-padding {
+    padding: $spacing-3xl 0;
+    
+    @media (min-width: $breakpoint-md) {
+        padding: $spacing-4xl 0;
+    }
+}
+
+// =============================================================================
+// RESPONSIVE MIXINS
+// =============================================================================
+
+@mixin mobile {
+    @media (max-width: #{$breakpoint-sm - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: $breakpoint-sm) and (max-width: #{$breakpoint-lg - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $breakpoint-lg) {
+        @content;
+    }
 }
 
 @mixin responsive($breakpoint) {
     @if $breakpoint == mobile {
-        @media (max-width: $breakpoint-mobile) {
+        @include mobile {
             @content;
         }
     }
     @if $breakpoint == tablet {
-        @media (max-width: $breakpoint-tablet) {
+        @include tablet {
             @content;
         }
     }
     @if $breakpoint == desktop {
-        @media (min-width: $breakpoint-desktop) {
+        @include desktop {
             @content;
         }
+    }
+}
+
+// =============================================================================
+// VISUAL MIXINS
+// =============================================================================
+
+@mixin shadow($level: md) {
+    @if $level == sm {
+        box-shadow: $shadow-sm;
+    }
+    @if $level == md {
+        box-shadow: $shadow-md;
+    }
+    @if $level == lg {
+        box-shadow: $shadow-lg;
+    }
+    @if $level == xl {
+        box-shadow: $shadow-xl;
+    }
+}
+
+@mixin border-radius($size: md) {
+    @if $size == sm {
+        border-radius: $border-radius-sm;
+    }
+    @if $size == md {
+        border-radius: $border-radius-md;
+    }
+    @if $size == lg {
+        border-radius: $border-radius-lg;
+    }
+    @if $size == xl {
+        border-radius: $border-radius-xl;
+    }
+    @if $size == full {
+        border-radius: $border-radius-full;
     }
 }

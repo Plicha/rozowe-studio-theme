@@ -39,7 +39,7 @@ function rozowe_studio_scripts() {
     }
     
     // Enqueue Google Fonts
-    wp_enqueue_style('rozowe-studio-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', array(), null);
+    wp_enqueue_style('rozowe-studio-fonts', 'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap', array(), null);
     
     // Localize script for AJAX
     wp_localize_script('rozowe-studio-js', 'rozowe_studio_ajax', array(

@@ -1,9 +1,20 @@
-// Gutenberg Block Styles
+// =============================================================================
+// GUTENBERG BLOCK STYLES
+// =============================================================================
+
+// Import variables and mixins
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// =============================================================================
+// GROUP BLOCK
+// =============================================================================
+
 .wp-block-group {
     margin-bottom: $spacing-md;
     
     &.has-background {
-        padding: $spacing-md;
+        padding: $spacing-lg;
         border-radius: $border-radius-lg;
     }
     
@@ -13,40 +24,66 @@
     }
 }
 
+// =============================================================================
+// HEADING BLOCK
+// =============================================================================
+
 .wp-block-heading {
     margin-bottom: $spacing-sm;
-    color: $primary-color;
+    color: $color-primary;
+    font-family: $font-heading;
     
     h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        line-height: 1.2;
+        font-size: $font-size-4xl;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-tight;
+        
+        @media (min-width: $breakpoint-md) {
+            font-size: $font-size-5xl;
+        }
     }
     
     h2 {
-        font-size: 2rem;
-        font-weight: 600;
-        line-height: 1.3;
+        font-size: $font-size-3xl;
+        font-weight: $font-weight-semibold;
+        line-height: $line-height-tight;
+        
+        @media (min-width: $breakpoint-md) {
+            font-size: $font-size-4xl;
+        }
     }
     
     h3 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        line-height: 1.4;
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-semibold;
+        line-height: $line-height-snug;
+        
+        @media (min-width: $breakpoint-md) {
+            font-size: $font-size-3xl;
+        }
     }
     
     h4 {
-        font-size: 1.25rem;
-        font-weight: 500;
-        line-height: 1.4;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-medium;
+        line-height: $line-height-snug;
+        
+        @media (min-width: $breakpoint-md) {
+            font-size: $font-size-2xl;
+        }
     }
 }
 
+// =============================================================================
+// PARAGRAPH BLOCK
+// =============================================================================
+
 .wp-block-paragraph {
-    margin-bottom: $spacing-sm;
-    line-height: $line-height-base;
-    color: $text-color;
-    font-size: 1.125rem;
+    margin-bottom: $spacing-md;
+    line-height: $line-height-relaxed;
+    color: $color-text-primary;
+    font-family: $font-primary;
+    font-size: $font-size-base;
     
     &.has-text-align-center {
         text-align: center;
@@ -61,69 +98,279 @@
     }
 }
 
+// =============================================================================
+// BUTTONS BLOCK
+// =============================================================================
+
 .wp-block-buttons {
-    margin-top: $spacing-md;
+    margin: $spacing-lg 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    align-items: center;
+    
+    &.is-content-justification-left {
+        justify-content: flex-start;
+    }
+    
+    &.is-content-justification-center {
+        justify-content: center;
+    }
+    
+    &.is-content-justification-right {
+        justify-content: flex-end;
+    }
+    
+    &.is-content-justification-space-between {
+        justify-content: space-between;
+    }
+    
+    @include mobile {
+        flex-direction: column;
+        align-items: stretch;
+        
+        .wp-block-button {
+            width: 100%;
+            
+            .wp-block-button__link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
 }
 
+// =============================================================================
+// IMAGE BLOCK
+// =============================================================================
+
 .wp-block-image {
-    margin: $spacing-md 0;
+    margin: $spacing-lg 0;
     
     img {
         max-width: 100%;
         height: auto;
         border-radius: $border-radius-md;
+        @include transition(transform);
+        
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+    
+    figcaption {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+        text-align: center;
+        margin-top: $spacing-sm;
+        font-style: italic;
     }
 }
 
+// =============================================================================
+// COLUMNS BLOCK
+// =============================================================================
+
 .wp-block-columns {
-    margin-bottom: $spacing-md;
-    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+    gap: $spacing-lg;
+    display: flex;
+    flex-wrap: wrap;
     
     &.is-style-default {
-        gap: $spacing-md;
+        gap: $spacing-lg;
     }
     
     &.is-style-wide {
         max-width: 1200px;
         margin: 0 auto;
     }
+    
+    @include mobile {
+        flex-direction: column;
+        gap: $spacing-md;
+    }
 }
 
 .wp-block-column {
+    flex: 1;
+    min-width: 0;
     padding: 0 $spacing-sm;
+    
+    @include mobile {
+        padding: 0;
+    }
 }
 
+// =============================================================================
+// QUOTE BLOCK
+// =============================================================================
+
 .wp-block-quote {
-    border-left: 4px solid $primary-color;
-    padding-left: $spacing-sm;
-    margin: $spacing-md 0;
+    border-left: 4px solid $color-primary;
+    padding-left: $spacing-lg;
+    margin: $spacing-lg 0;
     font-style: italic;
+    font-family: $font-heading;
+    font-size: $font-size-lg;
+    color: $color-text-secondary;
+    background-color: $color-bg-secondary;
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    
+    p {
+        margin: 0;
+    }
+    
+    cite {
+        display: block;
+        font-size: $font-size-sm;
+        font-style: normal;
+        color: $color-text-muted;
+        margin-top: $spacing-sm;
+        
+        &::before {
+            content: '— ';
+        }
+    }
 }
+
+// =============================================================================
+// SEPARATOR BLOCK
+// =============================================================================
 
 .wp-block-separator {
     border: none;
-    border-top: 2px solid $border-color;
-    margin: $spacing-md 0;
+    border-top: 2px solid $color-border;
+    margin: $spacing-xl 0;
+    
+    &.is-style-wide {
+        max-width: 100%;
+    }
+    
+    &.is-style-dots {
+        border: none;
+        text-align: center;
+        
+        &::before {
+            content: '···';
+            color: $color-primary;
+            font-size: $font-size-xl;
+            letter-spacing: $spacing-sm;
+        }
+    }
 }
 
+// =============================================================================
+// GALLERY BLOCK
+// =============================================================================
+
 .wp-block-gallery {
-    margin: $spacing-md 0;
+    margin: $spacing-lg 0;
     
     .blocks-gallery-item {
         margin-bottom: $spacing-sm;
         
         img {
             border-radius: $border-radius-md;
+            @include transition(transform);
+            
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }
     
     &.is-style-default {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: $spacing-sm;
+        gap: $spacing-md;
     }
     
     &.is-style-rounded img {
         border-radius: 50%;
+    }
+    
+    &.is-style-masonry {
+        column-count: 3;
+        column-gap: $spacing-md;
+        
+        @include mobile {
+            column-count: 1;
+        }
+        
+        @include tablet {
+            column-count: 2;
+        }
+    }
+}
+
+// =============================================================================
+// LIST BLOCK
+// =============================================================================
+
+.wp-block-list {
+    margin: $spacing-lg 0;
+    
+    li {
+        margin-bottom: $spacing-xs;
+        line-height: $line-height-relaxed;
+    }
+    
+    &.has-text-align-center {
+        text-align: center;
+    }
+    
+    &.has-text-align-left {
+        text-align: left;
+    }
+    
+    &.has-text-align-right {
+        text-align: right;
+    }
+}
+
+// =============================================================================
+// CODE BLOCK
+// =============================================================================
+
+.wp-block-code {
+    background-color: $color-bg-muted;
+    border-radius: $border-radius-md;
+    padding: $spacing-lg;
+    margin: $spacing-lg 0;
+    overflow-x: auto;
+    
+    code {
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: $font-size-sm;
+        line-height: $line-height-relaxed;
+        color: $color-text-primary;
+        background: none;
+        padding: 0;
+        border-radius: 0;
+    }
+}
+
+// =============================================================================
+// PREFORMATTED BLOCK
+// =============================================================================
+
+.wp-block-preformatted {
+    background-color: $color-bg-muted;
+    border-radius: $border-radius-md;
+    padding: $spacing-lg;
+    margin: $spacing-lg 0;
+    overflow-x: auto;
+    
+    pre {
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: $font-size-sm;
+        line-height: $line-height-relaxed;
+        color: $color-text-primary;
+        background: none;
+        padding: 0;
+        border-radius: 0;
+        margin: 0;
     }
 }

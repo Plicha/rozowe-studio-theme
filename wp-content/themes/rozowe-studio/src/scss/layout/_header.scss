@@ -35,7 +35,7 @@
         @include transition(color);
         
         &:hover {
-            color: $accent-color;
+            color: $color-secondary;
         }
     }
 }

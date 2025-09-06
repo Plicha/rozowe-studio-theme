@@ -1,10 +1,102 @@
+// =============================================================================
+// BASE STYLES
+// =============================================================================
+
+// Import variables and mixins
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// =============================================================================
+// BODY STYLES
+// =============================================================================
+
 body {
-    font-family: $font-family-base;
-    line-height: $line-height-base;
-    color: $text-color;
-    background-color: $background-color;
+    font-family: $font-primary;
+    line-height: $line-height-normal;
+    color: $color-text-primary;
+    background-color: $color-bg-primary;
+    margin: 0;
+    padding: 0;
 }
+
+// =============================================================================
+// CONTAINER
+// =============================================================================
 
 .container {
     @include container;
+}
+
+// =============================================================================
+// SITE STRUCTURE
+// =============================================================================
+
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-main {
+    flex: 1;
+}
+
+// =============================================================================
+// ACCESSIBILITY
+// =============================================================================
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+    background-color: $color-bg-secondary;
+    border-radius: $border-radius-sm;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: $color-text-primary;
+    display: block;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: $spacing-sm $spacing-md;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+// =============================================================================
+// FOCUS STYLES
+// =============================================================================
+
+*:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+}
+
+// =============================================================================
+// SELECTION STYLES
+// =============================================================================
+
+::selection {
+    background-color: $color-primary-light;
+    color: $color-text-primary;
+}
+
+::-moz-selection {
+    background-color: $color-primary-light;
+    color: $color-text-primary;
 }

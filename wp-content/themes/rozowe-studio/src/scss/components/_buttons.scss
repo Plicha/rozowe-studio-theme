@@ -1,54 +1,159 @@
-// Buttons
+// =============================================================================
+// BUTTON STYLES
+// =============================================================================
+
+// Import variables and mixins
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// =============================================================================
+// BASE BUTTON STYLES
+// =============================================================================
+
 .btn {
     @include button-style;
     
     &-primary {
-        @include button-style($primary-color, $background-color);
+        @include button-style($color-primary, $color-white);
     }
     
     &-secondary {
-        @include button-style(transparent, $primary-color);
-        border-color: $primary-color;
-        
-        &:hover {
-            background-color: $primary-color;
-            color: $background-color;
-        }
+        @include button-outline($color-primary, $color-primary);
     }
     
     &-accent {
-        @include button-style($accent-color, white);
+        @include button-style($color-secondary, $color-white);
+    }
+    
+    &-large {
+        padding: $spacing-md $spacing-xl;
+        font-size: $font-size-lg;
+    }
+    
+    &-small {
+        padding: $spacing-xs $spacing-md;
+        font-size: $font-size-sm;
     }
 }
 
-// Gutenberg Block Buttons
-.wp-block-button .wp-block-button__link {
-    @include button-style;
+// =============================================================================
+// GUTENBERG BLOCK BUTTONS
+// =============================================================================
+
+.wp-block-button {
+    .wp-block-button__link {
+        @include button-style($color-primary, $color-white);
+        font-family: $font-primary;
+        font-weight: $font-weight-medium;
+        
+        &:hover {
+            background-color: $color-primary-dark;
+            transform: translateY(-2px);
+            box-shadow: $shadow-md;
+        }
+        
+        &:focus {
+            outline: 2px solid $color-primary;
+            outline-offset: 2px;
+        }
+    }
     
-    &:hover {
-        background-color: $primary-dark;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(58, 4, 15, 0.3);
+    // Outline style
+    &.is-style-outline .wp-block-button__link {
+        @include button-outline($color-primary, $color-primary);
+        
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+    
+    // Fill style
+    &.is-style-fill .wp-block-button__link {
+        @include button-style($color-secondary, $color-white);
+        
+        &:hover {
+            background-color: $color-primary;
+            transform: translateY(-2px);
+        }
+    }
+    
+    // Squared style
+    &.is-style-squared .wp-block-button__link {
+        border-radius: 0;
+    }
+    
+    // Pill style
+    &.is-style-pill .wp-block-button__link {
+        border-radius: $border-radius-full;
     }
 }
 
-.wp-block-button.is-style-outline .wp-block-button__link {
-    background-color: transparent;
-    color: $primary-color;
-    border: 2px solid $primary-color;
+// =============================================================================
+// BUTTON GROUPS
+// =============================================================================
+
+.wp-block-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    align-items: center;
     
-    &:hover {
-        background-color: $primary-color;
-        color: $background-color;
+    &.is-content-justification-left {
+        justify-content: flex-start;
+    }
+    
+    &.is-content-justification-center {
+        justify-content: center;
+    }
+    
+    &.is-content-justification-right {
+        justify-content: flex-end;
+    }
+    
+    &.is-content-justification-space-between {
+        justify-content: space-between;
+    }
+    
+    // Responsive adjustments
+    @include mobile {
+        flex-direction: column;
+        align-items: stretch;
+        
+        .wp-block-button {
+            width: 100%;
+            
+            .wp-block-button__link {
+                width: 100%;
+                text-align: center;
+            }
+        }
     }
 }
 
-.wp-block-button.is-style-fill .wp-block-button__link {
-    background-color: $accent-color;
-    color: white;
+// =============================================================================
+// CUSTOM BUTTON STYLES
+// =============================================================================
+
+.button-group {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    
+    @include mobile {
+        flex-direction: column;
+    }
+}
+
+.cta-button {
+    @include button-style($color-primary, $color-white);
+    font-size: $font-size-lg;
+    padding: $spacing-md $spacing-xl;
+    font-weight: $font-weight-semibold;
     
     &:hover {
-        background-color: $primary-color;
-        transform: translateY(-2px);
+        background-color: $color-primary-dark;
+        transform: translateY(-3px);
+        box-shadow: $shadow-lg;
     }
 }
