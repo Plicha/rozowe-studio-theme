@@ -1,0 +1,41 @@
+// Header
+.site-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: $spacing-sm 0;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.site-description {
+    color: #666;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+// Navigation
+.main-navigation {
+    margin-top: $spacing-sm;
+    
+    ul {
+        list-style: none;
+        display: flex;
+        gap: $spacing-md;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        @include transition(color);
+        
+        &:hover {
+            color: $accent-color;
+        }
+    }
+}

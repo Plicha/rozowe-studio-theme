@@ -1,0 +1,30 @@
+// Forms
+form {
+    margin-bottom: $spacing-md;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: $spacing-sm;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-md;
+    font-family: $font-family-base;
+    @include transition(border-color);
+    
+    &:focus {
+        outline: none;
+        border-color: $primary-color;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-weight: 500;
+    color: $primary-color;
+}
+
+button[type="submit"] {
+    @include button-style;
+    cursor: pointer;
+}

@@ -1,0 +1,129 @@
+// Gutenberg Block Styles
+.wp-block-group {
+    margin-bottom: $spacing-md;
+    
+    &.has-background {
+        padding: $spacing-md;
+        border-radius: $border-radius-lg;
+    }
+    
+    &.is-style-rounded {
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+    }
+}
+
+.wp-block-heading {
+    margin-bottom: $spacing-sm;
+    color: $primary-color;
+    
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    
+    h4 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+}
+
+.wp-block-paragraph {
+    margin-bottom: $spacing-sm;
+    line-height: $line-height-base;
+    color: $text-color;
+    font-size: 1.125rem;
+    
+    &.has-text-align-center {
+        text-align: center;
+    }
+    
+    &.has-text-align-left {
+        text-align: left;
+    }
+    
+    &.has-text-align-right {
+        text-align: right;
+    }
+}
+
+.wp-block-buttons {
+    margin-top: $spacing-md;
+}
+
+.wp-block-image {
+    margin: $spacing-md 0;
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: $border-radius-md;
+    }
+}
+
+.wp-block-columns {
+    margin-bottom: $spacing-md;
+    gap: $spacing-md;
+    
+    &.is-style-default {
+        gap: $spacing-md;
+    }
+    
+    &.is-style-wide {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.wp-block-column {
+    padding: 0 $spacing-sm;
+}
+
+.wp-block-quote {
+    border-left: 4px solid $primary-color;
+    padding-left: $spacing-sm;
+    margin: $spacing-md 0;
+    font-style: italic;
+}
+
+.wp-block-separator {
+    border: none;
+    border-top: 2px solid $border-color;
+    margin: $spacing-md 0;
+}
+
+.wp-block-gallery {
+    margin: $spacing-md 0;
+    
+    .blocks-gallery-item {
+        margin-bottom: $spacing-sm;
+        
+        img {
+            border-radius: $border-radius-md;
+        }
+    }
+    
+    &.is-style-default {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: $spacing-sm;
+    }
+    
+    &.is-style-rounded img {
+        border-radius: 50%;
+    }
+}

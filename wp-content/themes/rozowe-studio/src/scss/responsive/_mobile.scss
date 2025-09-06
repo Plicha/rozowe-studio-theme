@@ -1,0 +1,65 @@
+// Responsive
+@include responsive(mobile) {
+    .main-navigation ul {
+        flex-direction: column;
+        gap: $spacing-sm;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .page-content {
+        padding: $spacing-sm;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .wp-block-heading h1 {
+        font-size: 2rem;
+    }
+    
+    .wp-block-heading h2 {
+        font-size: 1.75rem;
+    }
+    
+    .wp-block-heading h3 {
+        font-size: 1.25rem;
+    }
+    
+    .wp-block-heading h4 {
+        font-size: 1.125rem;
+    }
+    
+    .wp-block-columns {
+        flex-direction: column;
+    }
+    
+    .wp-block-column {
+        padding: 0;
+        margin-bottom: $spacing-sm;
+    }
+    
+    .wp-block-paragraph {
+        font-size: 1rem;
+    }
+    
+    .wp-block-button .wp-block-button__link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .wp-block-gallery.is-style-default {
+        grid-template-columns: 1fr;
+    }
+    
+    .wp-block-image {
+        margin: $spacing-sm 0;
+    }
+    
+    .wp-block-group.has-background {
+        padding: $spacing-sm;
+    }
+}

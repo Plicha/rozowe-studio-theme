@@ -1,0 +1,54 @@
+// Buttons
+.btn {
+    @include button-style;
+    
+    &-primary {
+        @include button-style($primary-color, $background-color);
+    }
+    
+    &-secondary {
+        @include button-style(transparent, $primary-color);
+        border-color: $primary-color;
+        
+        &:hover {
+            background-color: $primary-color;
+            color: $background-color;
+        }
+    }
+    
+    &-accent {
+        @include button-style($accent-color, white);
+    }
+}
+
+// Gutenberg Block Buttons
+.wp-block-button .wp-block-button__link {
+    @include button-style;
+    
+    &:hover {
+        background-color: $primary-dark;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(58, 4, 15, 0.3);
+    }
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+    background-color: transparent;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    
+    &:hover {
+        background-color: $primary-color;
+        color: $background-color;
+    }
+}
+
+.wp-block-button.is-style-fill .wp-block-button__link {
+    background-color: $accent-color;
+    color: white;
+    
+    &:hover {
+        background-color: $primary-color;
+        transform: translateY(-2px);
+    }
+}

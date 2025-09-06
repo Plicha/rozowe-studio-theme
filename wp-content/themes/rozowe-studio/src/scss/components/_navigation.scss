@@ -1,0 +1,30 @@
+// Navigation
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+    @include responsive(mobile) {
+        display: block;
+    }
+}
+
+.main-navigation ul {
+    @include responsive(mobile) {
+        display: none;
+        
+        &.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: $spacing-sm;
+        }
+    }
+}

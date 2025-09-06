@@ -1,0 +1,66 @@
+// Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $easing: ease) {
+    transition: $property $duration $easing;
+}
+
+@mixin hover-lift {
+    @include transition(transform);
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+@mixin button-style($bg-color: $primary-color, $text-color: $background-color) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: 2px solid transparent;
+    padding: 12px 24px;
+    border-radius: $border-radius-md;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    @include transition;
+    
+    &:hover {
+        background-color: $primary-dark;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(58, 4, 15, 0.3);
+    }
+}
+
+@mixin container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (max-width: $breakpoint-mobile) {
+            @content;
+        }
+    }
+    @if $breakpoint == tablet {
+        @media (max-width: $breakpoint-tablet) {
+            @content;
+        }
+    }
+    @if $breakpoint == desktop {
+        @media (min-width: $breakpoint-desktop) {
+            @content;
+        }
+    }
+}
