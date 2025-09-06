@@ -216,3 +216,43 @@ $accent-color: #ff69b4;
 
 **Problem:** Build fails
 **Solution:** Check if all SCSS files exist in `src/scss/`
+
+### Modular PHP Architecture
+
+The theme uses a modular PHP structure for better organization and maintainability:
+
+```
+inc/
+├── setup.php          # Theme setup, supports, menus, image sizes
+├── assets.php         # Scripts, styles, Parcel integration
+├── widgets.php        # Widget areas registration
+├── navigation.php     # Menu functions and fallbacks
+├── security.php       # Security enhancements
+├── homepage.php       # Homepage setup and Gutenberg content
+└── helpers.php        # Utility functions (excerpt, body classes, queries)
+```
+
+**Benefits:**
+- ✅ **Readability** - each file has a single responsibility
+- ✅ **Maintainability** - easy to find and edit functions
+- ✅ **Modularity** - can enable/disable functionalities
+- ✅ **Collaboration** - different people can work on different files
+- ✅ **Testing** - easier to test isolated functions
+
+**Main functions.php** (only 22 lines):
+```php
+<?php
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+// Load theme files
+require_once get_template_directory() . '/inc/setup.php';
+require_once get_template_directory() . '/inc/assets.php';
+require_once get_template_directory() . '/inc/widgets.php';
+require_once get_template_directory() . '/inc/navigation.php';
+require_once get_template_directory() . '/inc/security.php';
+require_once get_template_directory() . '/inc/homepage.php';
+require_once get_template_directory() . '/inc/helpers.php';
+```
