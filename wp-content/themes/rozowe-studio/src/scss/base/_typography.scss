@@ -1,5 +1,5 @@
 // =============================================================================
-// TYPOGRAPHY STYLES
+// TYPOGRAPHY STYLES (Based on Figma Tokens)
 // =============================================================================
 
 // Import variables
@@ -11,8 +11,8 @@
 
 body {
     font-family: $font-primary;
-    font-size: $font-size-base;
-    font-weight: $font-weight-normal;
+    font-size: $font-size-base; // P1 from Figma (16px)
+    font-weight: $font-weight-normal; // Regular from Figma
     line-height: $line-height-normal;
     color: $color-text-primary;
     -webkit-font-smoothing: antialiased;
@@ -20,62 +20,57 @@ body {
 }
 
 // =============================================================================
-// HEADINGS
+// HEADINGS (Based on Figma Tokens)
 // =============================================================================
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-heading;
-    font-weight: $font-weight-semibold;
-    line-height: $line-height-tight;
+    font-weight: $font-weight-medium; // Medium from Figma
+    line-height: $line-height-normal; // AUTO from Figma
     color: $color-text-primary;
-    margin: 0 0 $spacing-md 0;
+    margin: 0 0 $spacing-sm 0;
     
     &:last-child {
         margin-bottom: 0;
     }
 }
 
+// H2 from Figma: EB Garamond, Medium, 32px
 h1 {
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
+    font-size: $font-size-4xl; // 32px from Figma
+    font-weight: $font-weight-medium;
     
     @media (min-width: $breakpoint-md) {
-        font-size: $font-size-5xl;
+        font-size: $font-size-5xl; // 40px
     }
     
     @media (min-width: $breakpoint-lg) {
-        font-size: $font-size-6xl;
+        font-size: $font-size-6xl; // 48px
     }
 }
 
+// H2 from Figma: EB Garamond, Medium, 32px
 h2 {
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-semibold;
+    font-size: $font-size-4xl; // 32px from Figma
+    font-weight: $font-weight-medium;
     
     @media (min-width: $breakpoint-md) {
-        font-size: $font-size-4xl;
+        font-size: $font-size-5xl; // 40px
     }
 }
 
+// H3 from Figma: Lato, Regular, 20px
 h3 {
-    font-size: $font-size-2xl;
-    font-weight: $font-weight-semibold;
+    font-size: $font-size-xl; // 20px from Figma
+    font-weight: $font-weight-normal; // Regular from Figma
+    font-family: $font-primary; // Lato from Figma
     
     @media (min-width: $breakpoint-md) {
-        font-size: $font-size-3xl;
+        font-size: $font-size-2xl; // 24px
     }
 }
 
 h4 {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-medium;
-    
-    @media (min-width: $breakpoint-md) {
-        font-size: $font-size-2xl;
-    }
-}
-
-h5 {
     font-size: $font-size-lg;
     font-weight: $font-weight-medium;
     
@@ -84,7 +79,7 @@ h5 {
     }
 }
 
-h6 {
+h5 {
     font-size: $font-size-base;
     font-weight: $font-weight-medium;
     
@@ -93,13 +88,26 @@ h6 {
     }
 }
 
+h6 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    
+    @media (min-width: $breakpoint-md) {
+        font-size: $font-size-base;
+    }
+}
+
 // =============================================================================
-// PARAGRAPHS
+// PARAGRAPHS (Based on Figma Tokens)
 // =============================================================================
 
+// P1 from Figma: Lato, Regular, 16px
 p {
-    margin: 0 0 $spacing-md 0;
-    line-height: $line-height-relaxed;
+    margin: 0 0 $spacing-sm 0;
+    line-height: $line-height-normal; // AUTO from Figma
+    font-family: $font-primary; // Lato from Figma
+    font-size: $font-size-base; // 16px from Figma
+    font-weight: $font-weight-normal; // Regular from Figma
     
     &:last-child {
         margin-bottom: 0;
@@ -132,8 +140,8 @@ a {
 // =============================================================================
 
 ul, ol {
-    margin: 0 0 $spacing-md 0;
-    padding-left: $spacing-lg;
+    margin: 0 0 $spacing-sm 0;
+    padding-left: $spacing-md;
     
     &:last-child {
         margin-bottom: 0;
@@ -142,7 +150,7 @@ ul, ol {
 
 li {
     margin-bottom: $spacing-xs;
-    line-height: $line-height-relaxed;
+    line-height: $line-height-normal;
     
     &:last-child {
         margin-bottom: 0;
@@ -159,8 +167,8 @@ blockquote {
     font-style: italic;
     line-height: $line-height-relaxed;
     color: $color-text-secondary;
-    margin: $spacing-lg 0;
-    padding: $spacing-md 0 $spacing-md $spacing-lg;
+    margin: $spacing-md 0;
+    padding: $spacing-sm 0 $spacing-sm $spacing-md;
     border-left: 4px solid $color-primary;
     background-color: $color-bg-secondary;
     
@@ -173,7 +181,7 @@ blockquote {
         font-size: $font-size-sm;
         font-style: normal;
         color: $color-text-muted;
-        margin-top: $spacing-sm;
+        margin-top: $spacing-xs;
         
         &::before {
             content: '— ';
@@ -189,7 +197,7 @@ code {
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: 0.875em;
     background-color: $color-bg-muted;
-    padding: $spacing-xs $spacing-sm;
+    padding: $spacing-xs $spacing-xs;
     border-radius: $border-radius-sm;
     color: $color-primary-dark;
 }
@@ -199,10 +207,10 @@ pre {
     font-size: $font-size-sm;
     line-height: $line-height-relaxed;
     background-color: $color-bg-muted;
-    padding: $spacing-md;
+    padding: $spacing-sm;
     border-radius: $border-radius-md;
     overflow-x: auto;
-    margin: $spacing-md 0;
+    margin: $spacing-sm 0;
     
     code {
         background: none;
@@ -272,7 +280,7 @@ pre {
 }
 
 // =============================================================================
-// GUTENBERG BLOCK STYLES
+// GUTENBERG BLOCK STYLES (Based on Figma Tokens)
 // =============================================================================
 
 .wp-block-heading {
@@ -292,8 +300,10 @@ pre {
 }
 
 .wp-block-paragraph {
-    font-family: $font-primary;
-    line-height: $line-height-relaxed;
+    font-family: $font-primary; // Lato from Figma
+    line-height: $line-height-normal; // AUTO from Figma
+    font-size: $font-size-base; // 16px from Figma
+    font-weight: $font-weight-normal; // Regular from Figma
     
     &.has-text-align-center {
         text-align: center;
@@ -312,8 +322,8 @@ pre {
     font-family: $font-heading;
     font-style: italic;
     border-left: 4px solid $color-primary;
-    padding-left: $spacing-lg;
-    margin: $spacing-lg 0;
+    padding-left: $spacing-md;
+    margin: $spacing-md 0;
     
     p {
         font-size: $font-size-lg;
@@ -324,7 +334,7 @@ pre {
         font-size: $font-size-sm;
         font-style: normal;
         color: $color-text-muted;
-        margin-top: $spacing-sm;
+        margin-top: $spacing-xs;
         display: block;
         
         &::before {

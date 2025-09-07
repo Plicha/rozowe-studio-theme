@@ -1,5 +1,5 @@
 // =============================================================================
-// BUTTON STYLES
+// BUTTON STYLES (Based on Figma Tokens)
 // =============================================================================
 
 // Import variables and mixins
@@ -14,7 +14,7 @@
     @include button-style;
     
     &-primary {
-        @include button-style($color-primary, $color-white);
+        @include button-style($color-primary, $color-white-100);
     }
     
     &-secondary {
@@ -22,29 +22,33 @@
     }
     
     &-accent {
-        @include button-style($color-secondary, $color-white);
+        @include button-style($color-secondary, $color-white-100);
     }
     
     &-large {
-        padding: $spacing-md $spacing-xl;
+        padding: $spacing-sm $spacing-lg;
         font-size: $font-size-lg;
     }
     
     &-small {
-        padding: $spacing-xs $spacing-md;
+        padding: $spacing-xs $spacing-sm;
         font-size: $font-size-sm;
     }
 }
 
 // =============================================================================
-// GUTENBERG BLOCK BUTTONS
+// GUTENBERG BLOCK BUTTONS (Based on Figma Tokens)
 // =============================================================================
 
 .wp-block-button {
     .wp-block-button__link {
-        @include button-style($color-primary, $color-white);
-        font-family: $font-primary;
-        font-weight: $font-weight-medium;
+        // Button from Figma: EB Garamond, Regular, 16px
+        font-family: $font-heading; // EB Garamond from Figma
+        font-weight: $font-weight-normal; // Regular from Figma
+        font-size: $font-size-base; // 16px from Figma
+        line-height: $line-height-normal; // AUTO from Figma
+        
+        @include button-style($color-primary, $color-white-100);
         
         &:hover {
             background-color: $color-primary-dark;
@@ -64,13 +68,13 @@
         
         &:hover {
             background-color: $color-primary;
-            color: $color-white;
+            color: $color-white-100;
         }
     }
     
     // Fill style
     &.is-style-fill .wp-block-button__link {
-        @include button-style($color-secondary, $color-white);
+        @include button-style($color-secondary, $color-white-100);
         
         &:hover {
             background-color: $color-primary;
@@ -96,7 +100,7 @@
 .wp-block-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing-md;
+    gap: $spacing-sm; // gap_s from Figma
     align-items: center;
     
     &.is-content-justification-left {
@@ -137,7 +141,7 @@
 
 .button-group {
     display: flex;
-    gap: $spacing-md;
+    gap: $spacing-sm; // gap_s from Figma
     flex-wrap: wrap;
     
     @include mobile {
@@ -146,10 +150,10 @@
 }
 
 .cta-button {
-    @include button-style($color-primary, $color-white);
+    @include button-style($color-primary, $color-white-100);
     font-size: $font-size-lg;
-    padding: $spacing-md $spacing-xl;
-    font-weight: $font-weight-semibold;
+    padding: $spacing-sm $spacing-lg;
+    font-weight: $font-weight-medium;
     
     &:hover {
         background-color: $color-primary-dark;
