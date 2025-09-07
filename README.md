@@ -256,3 +256,160 @@ require_once get_template_directory() . '/inc/security.php';
 require_once get_template_directory() . '/inc/homepage.php';
 require_once get_template_directory() . '/inc/helpers.php';
 ```
+
+### Figma Design Tokens & Utility Classes
+
+The theme implements a comprehensive design system based on Figma tokens with utility classes for rapid development.
+
+#### Design Tokens
+
+**Colors (from Figma):**
+```scss
+$color-black-700: #140d0d;    // Primary text
+$color-black-600: #221516;    // Secondary text
+$color-burgundy-500: #3a040f; // Primary brand color
+$color-burgundy-200: #9a9192; // Secondary brand color
+$color-white-200: #e0dbd7;    // Light background
+$color-white-100: #f4f5f1;    // Main background
+```
+
+**Typography:**
+```scss
+$font-family-heading: 'EB Garamond', serif;  // Headings
+$font-family-body: 'Lato', sans-serif;       // Body text
+
+// Font sizes (from Figma tokens)
+$font-size-xs: 12px;   // Small text
+$font-size-sm: 14px;   // Small
+$font-size-base: 16px; // Body text (P1)
+$font-size-lg: 18px;   // Large
+$font-size-xl: 20px;   // H3
+$font-size-2xl: 24px;  // Medium heading
+$font-size-3xl: 32px;  // H2
+$font-size-4xl: 40px;  // Large heading
+$font-size-5xl: 48px;  // H1
+```
+
+**Spacing (from Figma gap tokens):**
+```scss
+$spacing-xs: 8px;   // Extra small
+$spacing-sm: 16px;  // Small
+$spacing-md: 32px;  // Medium
+$spacing-lg: 40px;  // Large
+$spacing-xl: 80px;  // Extra large
+```
+
+#### Utility Classes
+
+**Color Utilities:**
+```html
+<!-- Text colors -->
+<h1 class="text-burgundy-500">Primary heading</h1>
+<p class="text-black-700">Main text</p>
+<span class="text-burgundy-200">Secondary text</span>
+
+<!-- Background colors -->
+<div class="bg-white-100">Light background</div>
+<section class="bg-burgundy-500">Dark section</section>
+
+<!-- Border colors -->
+<div class="border border-burgundy-500">Bordered element</div>
+```
+
+**Typography Utilities:**
+```html
+<!-- Font families -->
+<h1 class="font-eb-garamond">Heading with EB Garamond</h1>
+<p class="font-lato">Body text with Lato</p>
+
+<!-- Font weights -->
+<p class="font-light">Light text</p>
+<p class="font-medium">Medium text</p>
+<p class="font-bold">Bold text</p>
+
+<!-- Font sizes -->
+<h1 class="text-5xl">Large heading (48px)</h1>
+<h2 class="text-3xl">Medium heading (32px)</h2>
+<p class="text-base">Body text (16px)</p>
+<p class="text-sm">Small text (14px)</p>
+```
+
+**Spacing Utilities:**
+```html
+<!-- Margin -->
+<div class="m-md">Medium margin all around</div>
+<div class="mt-lg mb-sm">Large top, small bottom margin</div>
+<div class="mx-auto">Auto horizontal margin (centering)</div>
+
+<!-- Padding -->
+<div class="p-lg">Large padding all around</div>
+<div class="px-md py-sm">Medium horizontal, small vertical padding</div>
+```
+
+**Layout Utilities:**
+```html
+<!-- Display -->
+<div class="flex justify-center items-center">Centered flex container</div>
+<div class="grid grid-cols-2 gap-md">2-column grid</div>
+<div class="hidden mobile:block">Hidden on desktop, visible on mobile</div>
+
+<!-- Flexbox -->
+<div class="flex flex-col mobile:flex-row">
+  <div class="flex-1">Flexible item</div>
+</div>
+```
+
+**Border & Shadow Utilities:**
+```html
+<!-- Borders -->
+<div class="border border-burgundy-500 rounded-lg">Rounded border</div>
+<div class="border-2 border-t-0">Custom border</div>
+
+<!-- Shadows -->
+<div class="shadow-lg">Large shadow</div>
+<div class="shadow-none">No shadow</div>
+```
+
+**Responsive Utilities:**
+```html
+<!-- Mobile first approach -->
+<div class="text-center mobile:text-left">Center on desktop, left on mobile</div>
+<div class="hidden mobile:flex">Hidden on desktop, flex on mobile</div>
+<div class="flex mobile:hidden">Flex on desktop, hidden on mobile</div>
+
+<!-- Tablet and desktop -->
+<div class="mobile:hidden tablet:block">Hidden on mobile, block on tablet+</div>
+<div class="desktop:flex">Flex only on desktop</div>
+```
+
+#### Complete Example
+
+```html
+<section class="bg-white-100 p-xl">
+  <div class="container mx-auto">
+    <h1 class="text-burgundy-500 font-eb-garamond text-5xl text-center mb-lg">
+      Welcome to Różowe Studio
+    </h1>
+    <p class="text-black-700 font-lato text-base text-center mb-md max-w-2xl mx-auto">
+      We create beautiful and functional websites with modern design.
+    </p>
+    <div class="flex justify-center mobile:flex-col gap-md">
+      <button class="bg-burgundy-500 text-white-100 px-lg py-sm rounded font-medium hover:bg-black-700 transition-colors">
+        Get Started
+      </button>
+      <button class="border border-burgundy-500 text-burgundy-500 px-lg py-sm rounded font-medium hover:bg-burgundy-500 hover:text-white-100 transition-colors">
+        Learn More
+      </button>
+    </div>
+  </div>
+</section>
+```
+
+#### Benefits
+
+- ✅ **Consistent Design** - All colors, spacing, and typography follow Figma tokens
+- ✅ **Rapid Development** - Utility classes for quick styling
+- ✅ **Responsive** - Mobile-first approach with responsive utilities
+- ✅ **Maintainable** - Centralized design system in SCSS variables
+- ✅ **Flexible** - Mix utility classes with custom CSS as needed
+
