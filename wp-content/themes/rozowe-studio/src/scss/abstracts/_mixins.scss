@@ -51,17 +51,24 @@
 // BUTTON MIXINS
 // =============================================================================
 
-@mixin button-style($bg-color: $color-primary, $color-text-primary: $color-white) {
+@mixin button-style($bg-color: $color-burgundy-500, $color-text-primary: $color-white-100) {
     background-color: $bg-color;
     color: $color-text-primary;
-    border: 2px solid transparent;
-    padding: $spacing-sm $spacing-lg;
-    border-radius: $border-radius-md;
-    font-weight: $font-weight-medium;
+    border: 1px solid $color-white-100;
+    padding: calc((#{$spacing-lg} - #{$font-size-base} * #{$line-height-normal}) / 2) $spacing-md;
+    border-radius: $border-radius-lg;
+    font-family: $font-heading;
+    font-size: $font-size-base;
+    line-height: $line-height-normal;
+    font-weight: $font-weight-normal;
     text-decoration: none;
-    display: inline-block;
-    @include transition;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all $transition-normal;
     cursor: pointer;
+    text-transform: uppercase;
     
     &:hover {
         background-color: $color-primary-dark;
