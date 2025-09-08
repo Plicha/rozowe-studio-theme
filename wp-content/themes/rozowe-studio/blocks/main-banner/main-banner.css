@@ -1,0 +1,72 @@
+/* Main Banner Block - Frontend Styles */
+.main-banner-block {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-banner-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.main-banner-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 35vh; /* 35% from top */
+}
+
+.main-banner-center-image {
+    max-height: 9.375rem; /* 150px converted to rem */
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+}
+
+/* SVG styling */
+.main-banner-content svg {
+    max-height: 9.375rem; /* 150px converted to rem */
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-banner-center-image,
+    .main-banner-content svg {
+        max-height: 7.5rem; /* 120px on mobile */
+    }
+    
+    .main-banner-content {
+        padding-top: 30vh; /* Slightly less padding on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-banner-center-image,
+    .main-banner-content svg {
+        max-height: 6.25rem; /* 100px on small mobile */
+    }
+    
+    .main-banner-content {
+        padding-top: 25vh; /* Even less padding on small mobile */
+    }
+} 

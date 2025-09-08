@@ -22,6 +22,9 @@ Text Domain: rozowe-studio
 @import 'components/navigation';
 @import 'components/blocks';
 
+// Custom Blocks
+@import 'blocks/main-banner';
+
 // Layout
 @import 'layout/header';
 @import 'layout/footer';

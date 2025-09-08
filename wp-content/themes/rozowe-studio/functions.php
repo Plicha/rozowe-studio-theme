@@ -20,3 +20,8 @@ require_once get_template_directory() . '/inc/navigation.php';
 require_once get_template_directory() . '/inc/security.php';
 require_once get_template_directory() . '/inc/homepage.php';
 require_once get_template_directory() . '/inc/helpers.php';
+
+/**
+ * Load custom blocks
+ */
+require_once get_template_directory() . '/blocks/main-banner/main-banner.php';

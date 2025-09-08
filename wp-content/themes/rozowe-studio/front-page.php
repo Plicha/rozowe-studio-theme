@@ -16,17 +16,13 @@ get_header(); ?>
             $front_page = get_post($front_page_id);
             
             if ($front_page) {
-                // Wyświetl tytuł strony
-                echo '<h1 class="page-title">' . get_the_title($front_page_id) . '</h1>';
-                
-                // Wyświetl treść strony (bloki Gutenberg)
+                // Wyświetl treść strony (bloki Gutenberg) bez tytułu
                 echo '<div class="page-content">';
                 echo apply_filters('the_content', $front_page->post_content);
                 echo '</div>';
             }
         } else {
-            // Fallback - wyświetl domyślną treść
-            echo '<h1 class="page-title">Witamy w Różowym Studio</h1>';
+            // Fallback - wyświetl domyślną treść bez tytułu
             echo '<div class="page-content">';
             echo '<p>Tworzymy piękne i funkcjonalne strony internetowe</p>';
             echo '</div>';

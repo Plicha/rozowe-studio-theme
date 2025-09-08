@@ -1,0 +1,67 @@
+/* Main Banner Block - Editor Styles */
+.main-banner-block-editor {
+    min-height: 400px;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.main-banner-block-editor .main-banner-background {
+    opacity: 0.7; /* Slightly transparent in editor */
+}
+
+.main-banner-block-editor .main-banner-content {
+    padding-top: 35vh;
+}
+
+/* Editor placeholder styling */
+.main-banner-block-editor .components-placeholder {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    color: #666;
+}
+
+.main-banner-block-editor .components-placeholder__label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.main-banner-block-editor .components-placeholder__instructions {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Media upload button styling */
+.editor-post-featured-image__toggle {
+    width: 100%;
+    padding: 12px;
+    border: 1px dashed #ccc;
+    background: #f9f9f9;
+    color: #666;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.editor-post-featured-image__toggle:hover {
+    border-color: #007cba;
+    color: #007cba;
+    background: #f0f8ff;
+}
+
+.editor-post-featured-image__preview {
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.editor-post-featured-image__preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+} 

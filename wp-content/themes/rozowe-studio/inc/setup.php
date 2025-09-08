@@ -41,3 +41,41 @@ function rozowe_studio_setup() {
     add_image_size('rozowe-studio-thumbnail', 300, 200, true);
 }
 add_action('after_setup_theme', 'rozowe_studio_setup');
+
+/**
+ * Add SVG support to WordPress
+ */
+function rozowe_studio_add_svg_support($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'rozowe_studio_add_svg_support');
+
+/**
+ * Fix SVG display in admin
+ */
+function rozowe_studio_fix_svg_display($response, $attachment, $meta) {
+    if ($response['type'] === 'image' && $response['subtype'] === 'svg+xml') {
+        $response['image'] = array(
+            'src' => $response['url'],
+            'width' => 150,
+            'height' => 150,
+        );
+        $response['thumb'] = array(
+            'src' => $response['url'],
+            'width' => 150,
+            'height' => 150,
+        );
+    }
+    return $response;
+}
+add_filter('wp_prepare_attachment_for_js', 'rozowe_studio_fix_svg_display', 10, 3);
+
+/**
+ * Register image sizes
+ */
+function rozowe_studio_image_sizes() {
+    add_image_size('hero-image', 1920, 1080, true);
+    add_image_size('thumbnail-large', 400, 300, true);
+}
+add_action('after_setup_theme', 'rozowe_studio_image_sizes');
