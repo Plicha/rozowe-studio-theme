@@ -65,3 +65,6 @@
     display: block;
     border-radius: 4px;
 } 
+.main-banner-block.main-banner-block-editor {
+    width: 100%;
+}

@@ -145,6 +145,12 @@
     }
 }
 
+@mixin tablet_and_mobile {
+    @media (max-width: #{$breakpoint-lg - 1px}) {
+        @content;
+    }
+}
+
 @mixin desktop {
     @media (min-width: $breakpoint-lg) {
         @content;

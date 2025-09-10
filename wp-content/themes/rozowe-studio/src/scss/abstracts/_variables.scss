@@ -68,6 +68,18 @@ $spacing-3xl: 160px;
 $spacing-4xl: 200px;
 
 // =============================================================================
+// GRID SYSTEM VARIABLES
+// =============================================================================
+
+// Container
+$container-max-width: 1182px;
+$container-padding: $spacing-md; // 32px
+
+// Grid System (12 columns)
+$grid-columns: 12;
+$grid-gap: $spacing-xs; // 8px gap between columns
+
+// =============================================================================
 // FONT TOKENS (from Figma)
 // =============================================================================
 

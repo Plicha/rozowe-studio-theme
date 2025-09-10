@@ -8,8 +8,8 @@
 get_header(); ?>
 
 <main id="main" class="site-main front-page">
-    <div class="container">
-        <?php
+        <div class="container">
+                <?php
         // Sprawdź czy strona główna jest ustawiona jako strona statyczna
         if (get_option('show_on_front') === 'page' && get_option('page_on_front')) {
             $front_page_id = get_option('page_on_front');
@@ -28,7 +28,7 @@ get_header(); ?>
             echo '</div>';
         }
         ?>
-    </div>
+        </div>
 </main>
 
-<?php get_footer(); ?>
+<?php get_footer(); ?> 

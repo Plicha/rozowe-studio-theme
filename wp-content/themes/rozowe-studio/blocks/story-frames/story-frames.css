@@ -1,0 +1,55 @@
+/* Story Frames Block - Frontend Styles */
+.story-frames-block {
+    background-color: #3a040f; /* $color-burgundy-500 */
+    color: #f4f5f1; /* $color-white-100 */
+    padding: 136px 0 106px 0;
+}
+
+.container {
+    max-width: 1182px;
+    margin: 0 auto;
+    padding: 0 32px; /* $spacing-md */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 8px; /* $spacing-xs */
+}
+
+.grid-col-6 {
+    grid-column: span 6;
+}
+
+.story-frames-content {
+    /* Content styles will be added by user */
+}
+
+.story-frames-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .story-frames-block {
+        padding: 80px 0 60px 0; /* Reduced padding on mobile */
+    }
+    
+    .container {
+        padding: 0 16px; /* $spacing-sm */
+    }
+    
+    .grid-col-6 {
+        grid-column: span 12; /* Full width on mobile */
+    }
+    
+    .grid-col-6:first-child {
+        order: 1; /* Text first on mobile */
+    }
+    
+    .grid-col-6:last-child {
+        order: 2; /* Image second on mobile */
+    }
+} 
