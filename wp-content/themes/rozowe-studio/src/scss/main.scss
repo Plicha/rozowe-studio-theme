@@ -1,0 +1,41 @@
+/*
+Theme Name: Różowe Studio
+Description: Custom WordPress theme for Różowe Studio
+Version: 1.0.0
+Author: Różowe Studio
+Author URI: https://rozowe-studio.pl
+Text Domain: rozowe-studio
+*/
+
+// Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Base
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// Components
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/navigation';
+@import 'components/blocks';
+
+// Custom Blocks
+@import 'blocks/main-banner';
+@import 'blocks/story-frames';
+@import 'blocks/content-letter';
+@import 'blocks/contact-form';
+
+// Layout
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+
+// Pages
+@import 'pages/home';
+
+// Responsive
+@import 'responsive/mobile';
+@import 'components/utilities';

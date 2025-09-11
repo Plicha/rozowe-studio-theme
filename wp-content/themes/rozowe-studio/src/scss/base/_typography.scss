@@ -1,0 +1,344 @@
+// =============================================================================
+// TYPOGRAPHY STYLES (Based on Figma Tokens)
+// =============================================================================
+
+// Import variables
+@import '../abstracts/variables';
+
+// =============================================================================
+// BASE TYPOGRAPHY
+// =============================================================================
+
+body {
+    font-family: $font-primary;
+    font-size: $font-size-base; // P1 from Figma (16px)
+    font-weight: $font-weight-normal; // Regular from Figma
+    line-height: $line-height-normal;
+    color: $color-text-primary;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// =============================================================================
+// HEADINGS (Based on Figma Tokens)
+// =============================================================================
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-heading;
+    font-weight: $font-weight-medium; // Medium from Figma
+    line-height: $line-height-normal; // AUTO from Figma
+    color: $color-text-primary;
+    margin: 0 0 $spacing-sm 0;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// H2 from Figma: EB Garamond, Medium, 32px
+h1 {
+    font-size: $font-size-4xl; // 32px from Figma
+    font-weight: $font-weight-medium;
+    
+    @media (min-width: $breakpoint-md) {
+        font-size: $font-size-5xl; // 40px
+    }
+    
+    @media (min-width: $breakpoint-lg) {
+        font-size: $font-size-6xl; // 48px
+    }
+}
+
+// H2 from Figma: EB Garamond, Medium, 32px
+h2 {
+    font-size: $font-size-4xl; // 32px from Figma
+    font-weight: $font-weight-medium;
+    
+    @media (min-width: $breakpoint-md) {
+        font-size: $font-size-5xl; // 40px
+    }
+}
+
+// H3 from Figma: Lato, Regular, 20px
+h3 {
+    font-size: $font-size-xl; // 20px from Figma
+    font-weight: $font-weight-normal; // Regular from Figma
+    font-family: $font-primary; // Lato from Figma
+    
+    @media (min-width: $breakpoint-md) {
+        font-size: $font-size-2xl; // 24px
+    }
+}
+
+h4 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    
+    @media (min-width: $breakpoint-md) {
+        font-size: $font-size-xl;
+    }
+}
+
+h5 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    
+    @media (min-width: $breakpoint-md) {
+        font-size: $font-size-lg;
+    }
+}
+
+h6 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    
+    @media (min-width: $breakpoint-md) {
+        font-size: $font-size-base;
+    }
+}
+
+// =============================================================================
+// PARAGRAPHS (Based on Figma Tokens)
+// =============================================================================
+
+// P1 from Figma: Lato, Regular, 16px
+p {
+    margin: 0 0 $spacing-sm 0;
+    line-height: $line-height-normal; // AUTO from Figma
+    font-family: $font-primary; // Lato from Figma
+    font-size: $font-size-base; // 16px from Figma
+    font-weight: $font-weight-normal; // Regular from Figma
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// =============================================================================
+// LINKS
+// =============================================================================
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+    transition: color $transition-fast;
+    
+    &:hover,
+    &:focus {
+        color: $color-primary-dark;
+        text-decoration: underline;
+    }
+    
+    &:focus {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+    }
+}
+
+// =============================================================================
+// LISTS
+// =============================================================================
+
+ul, ol {
+    margin: 0 0 $spacing-sm 0;
+    padding-left: $spacing-md;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+li {
+    margin-bottom: $spacing-xs;
+    line-height: $line-height-normal;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// =============================================================================
+// BLOCKQUOTES
+// =============================================================================
+
+blockquote {
+    font-family: $font-heading;
+    font-size: $font-size-lg;
+    font-style: italic;
+    line-height: $line-height-relaxed;
+    color: $color-text-secondary;
+    margin: $spacing-md 0;
+    padding: $spacing-sm 0 $spacing-sm $spacing-md;
+    border-left: 4px solid $color-primary;
+    background-color: $color-bg-secondary;
+    
+    p {
+        margin: 0;
+    }
+    
+    cite {
+        display: block;
+        font-size: $font-size-sm;
+        font-style: normal;
+        color: $color-text-muted;
+        margin-top: $spacing-xs;
+        
+        &::before {
+            content: '— ';
+        }
+    }
+}
+
+// =============================================================================
+// CODE
+// =============================================================================
+
+code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.875em;
+    background-color: $color-bg-muted;
+    padding: $spacing-xs $spacing-xs;
+    border-radius: $border-radius-sm;
+    color: $color-primary-dark;
+}
+
+pre {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    background-color: $color-bg-muted;
+    padding: $spacing-sm;
+    border-radius: $border-radius-md;
+    overflow-x: auto;
+    margin: $spacing-sm 0;
+    
+    code {
+        background: none;
+        padding: 0;
+        border-radius: 0;
+    }
+}
+
+// =============================================================================
+// UTILITY CLASSES
+// =============================================================================
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    color: $color-primary;
+}
+
+.text-secondary {
+    color: $color-text-secondary;
+}
+
+.text-muted {
+    color: $color-text-muted;
+}
+
+.font-heading {
+    font-family: $font-heading;
+}
+
+.font-primary {
+    font-family: $font-primary;
+}
+
+.font-light {
+    font-weight: $font-weight-light;
+}
+
+.font-normal {
+    font-weight: $font-weight-normal;
+}
+
+.font-medium {
+    font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+    font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+    font-weight: $font-weight-bold;
+}
+
+.font-black {
+    font-weight: $font-weight-black;
+}
+
+// =============================================================================
+// GUTENBERG BLOCK STYLES (Based on Figma Tokens)
+// =============================================================================
+
+.wp-block-heading {
+    font-family: $font-heading;
+    
+    &.has-text-align-center {
+        text-align: center;
+    }
+    
+    &.has-text-align-left {
+        text-align: left;
+    }
+    
+    &.has-text-align-right {
+        text-align: right;
+    }
+}
+
+.wp-block-paragraph {
+    font-family: $font-primary; // Lato from Figma
+    line-height: $line-height-normal; // AUTO from Figma
+    font-size: $font-size-base; // 16px from Figma
+    font-weight: $font-weight-normal; // Regular from Figma
+    
+    &.has-text-align-center {
+        text-align: center;
+    }
+    
+    &.has-text-align-left {
+        text-align: left;
+    }
+    
+    &.has-text-align-right {
+        text-align: right;
+    }
+}
+
+.wp-block-quote {
+    font-family: $font-heading;
+    font-style: italic;
+    border-left: 4px solid $color-primary;
+    padding-left: $spacing-md;
+    margin: $spacing-md 0;
+    
+    p {
+        font-size: $font-size-lg;
+        color: $color-text-secondary;
+    }
+    
+    cite {
+        font-size: $font-size-sm;
+        font-style: normal;
+        color: $color-text-muted;
+        margin-top: $spacing-xs;
+        display: block;
+        
+        &::before {
+            content: '— ';
+        }
+    }
+}

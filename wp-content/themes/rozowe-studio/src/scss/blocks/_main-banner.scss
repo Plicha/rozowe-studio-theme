@@ -1,0 +1,118 @@
+// =============================================================================
+// MAIN BANNER BLOCK
+// =============================================================================
+
+// Import variables and mixins
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// =============================================================================
+// MAIN BANNER BLOCK STYLES
+// =============================================================================
+
+.main-banner-block {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    max-width: 100vw;    
+    z-index: 10;
+    
+    // Background image properties
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+// Ensure parent containers don't interfere
+.page-content .main-banner-block,
+.wp-block-group .main-banner-block,
+.container .main-banner-block {
+    position: relative;
+    z-index: 10;
+}
+
+// Remove the separate background div styles since we don't need them anymore
+// .main-banner-background { ... } - DELETE THIS
+
+.main-banner-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: $spacing-md;
+}
+
+.main-banner-center-image {
+    max-height: 9.375rem; 
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20%;
+}
+
+// SVG styling
+.main-banner-content svg {
+    max-height: 9.375rem; // 150px converted to rem
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    margin-bottom: 20%;
+}
+
+// =============================================================================
+// RESPONSIVE STYLES
+// =============================================================================
+
+// Tablet breakpoint (using $breakpoint-lg)
+@media (max-width: #{$breakpoint-lg - 1px}) {
+    .main-banner-block {
+        min-height: 768px; // Tablet minimum height
+    }
+    
+    .main-banner-content {
+        padding: 30vh $spacing-sm 0; // Slightly less top padding, smaller horizontal padding
+    }
+}
+
+// Mobile breakpoint (using $breakpoint-md)
+@include mobile {
+    .main-banner-block {
+        min-height: 600px; // Mobile minimum height
+    }
+    
+    .main-banner-center-image,
+    .main-banner-content svg {
+        max-height: 7.5rem; // 120px on mobile
+    }
+    
+    .main-banner-content {
+        padding: 30vh $spacing-sm 0; // Slightly less padding on mobile, smaller horizontal padding
+    }
+}
+
+// Small mobile devices (using $breakpoint-sm)
+@media (max-width: #{$breakpoint-sm - 1px}) {
+    .main-banner-block {
+        min-height: 500px; // Small mobile minimum height
+    }
+    
+    .main-banner-center-image,
+    .main-banner-content svg {
+        max-height: 6.25rem; // 100px on small mobile
+    }
+    
+    .main-banner-content {
+        padding: 10vh $spacing-xs 0; // Even less padding on small mobile, minimal horizontal padding
+    }
+} 

@@ -1,0 +1,27 @@
+{
+  "name": "rozowe-studio",
+  "version": "1.0.0",
+  "description": "WordPress theme for Różowe Studio",
+  "scripts": {
+    "dev": "parcel src/scss/main.scss --port 1234 --host 0.0.0.0",
+    "build": "parcel build src/scss/main.scss --dist-dir dist/css --no-source-maps",
+    "build:watch": "parcel watch src/scss/main.scss --dist-dir dist/css --no-source-maps",
+    "js:dev": "parcel src/js/main.js --port 1235 --host 0.0.0.0",
+    "js:build": "parcel build src/js/main.js --dist-dir dist/js --no-source-maps",
+    "build:all": "npm run build && npm run js:build",
+    "clean": "rm -rf dist/"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "parcel",
+    "scss"
+  ],
+  "author": "Różowe Studio",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.15.4",
+    "parcel": "^2.15.4",
+    "sass": "^1.92.1"
+  }
+}

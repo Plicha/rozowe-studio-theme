@@ -1,0 +1,163 @@
+// =============================================================================
+// BUTTON STYLES (Based on Figma Tokens)
+// =============================================================================
+
+// Import variables and mixins
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// =============================================================================
+// BASE BUTTON STYLES
+// =============================================================================
+
+.btn {
+    @include button-style;
+    
+    &-primary {
+        @include button-style($color-primary, $color-white-100);
+    }
+    
+    &-secondary {
+        @include button-outline($color-primary, $color-primary);
+    }
+    
+    &-accent {
+        @include button-style($color-secondary, $color-white-100);
+    }
+    
+    &-large {
+        padding: $spacing-sm $spacing-lg;
+        font-size: $font-size-lg;
+    }
+    
+    &-small {
+        padding: $spacing-xs $spacing-sm;
+        font-size: $font-size-sm;
+    }
+}
+
+// =============================================================================
+// GUTENBERG BLOCK BUTTONS (Based on Figma Tokens)
+// =============================================================================
+
+.wp-block-button {
+    .wp-block-button__link {
+        // Button from Figma: EB Garamond, Regular, 16px
+        font-family: $font-heading; // EB Garamond from Figma
+        font-weight: $font-weight-normal; // Regular from Figma
+        font-size: $font-size-base; // 16px from Figma
+        line-height: $line-height-normal; // AUTO from Figma
+        
+        @include button-style($color-primary, $color-white-100);
+        
+        &:hover {
+            background-color: $color-primary-dark;
+            transform: translateY(-2px);
+            box-shadow: $shadow-md;
+        }
+        
+        &:focus {
+            outline: 2px solid $color-primary;
+            outline-offset: 2px;
+        }
+    }
+    
+    // Outline style
+    &.is-style-outline .wp-block-button__link {
+        @include button-outline($color-primary, $color-primary);
+        
+        &:hover {
+            background-color: $color-primary;
+            color: $color-white-100;
+        }
+    }
+    
+    // Fill style
+    &.is-style-fill .wp-block-button__link {
+        @include button-style($color-secondary, $color-white-100);
+        
+        &:hover {
+            background-color: $color-primary;
+            transform: translateY(-2px);
+        }
+    }
+    
+    // Squared style
+    &.is-style-squared .wp-block-button__link {
+        border-radius: 0;
+    }
+    
+    // Pill style
+    &.is-style-pill .wp-block-button__link {
+        border-radius: $border-radius-full;
+    }
+}
+
+// =============================================================================
+// BUTTON GROUPS
+// =============================================================================
+
+.wp-block-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm; // gap_s from Figma
+    align-items: center;
+    
+    &.is-content-justification-left {
+        justify-content: flex-start;
+    }
+    
+    &.is-content-justification-center {
+        justify-content: center;
+    }
+    
+    &.is-content-justification-right {
+        justify-content: flex-end;
+    }
+    
+    &.is-content-justification-space-between {
+        justify-content: space-between;
+    }
+    
+    // Responsive adjustments
+    @include mobile {
+        flex-direction: column;
+        align-items: stretch;
+        
+        .wp-block-button {
+            width: 100%;
+            
+            .wp-block-button__link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+// =============================================================================
+// CUSTOM BUTTON STYLES
+// =============================================================================
+
+.button-group {
+    display: flex;
+    gap: $spacing-sm; // gap_s from Figma
+    flex-wrap: wrap;
+    
+    @include mobile {
+        flex-direction: column;
+    }
+}
+
+.cta-button {
+    @include button-style($color-primary, $color-white-100);
+    font-size: $font-size-lg;
+    padding: $spacing-sm $spacing-lg;
+    font-weight: $font-weight-medium;
+    
+    &:hover {
+        background-color: $color-primary-dark;
+        transform: translateY(-3px);
+        box-shadow: $shadow-lg;
+    }
+}

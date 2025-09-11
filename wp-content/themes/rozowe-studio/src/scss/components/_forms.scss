@@ -1,0 +1,243 @@
+// =============================================================================
+// FORM STYLES
+// =============================================================================
+
+// Import variables and mixins
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// =============================================================================
+// BASE FORM STYLES
+// =============================================================================
+
+form {
+    margin-bottom: $spacing-md;
+}
+
+// =============================================================================
+// FORM ELEMENTS
+// =============================================================================
+
+input, textarea, select {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-md;
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    line-height: $line-height-normal;
+    color: $color-text-primary;
+    background-color: $color-bg-primary;
+    @include transition(border-color);
+    
+    &:focus {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+    }
+    
+    &::placeholder {
+        color: $color-text-muted;
+    }
+    
+    &:disabled {
+        background-color: $color-bg-muted;
+        color: $color-text-muted;
+        cursor: not-allowed;
+    }
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right $spacing-sm center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: $spacing-xl;
+}
+
+// =============================================================================
+// LABELS
+// =============================================================================
+
+label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+    font-size: $font-size-sm;
+}
+
+// =============================================================================
+// BUTTONS
+// =============================================================================
+
+button[type="submit"] {
+    @include button-style($color-primary, $color-white);
+    cursor: pointer;
+    border: none;
+    
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+    
+    &:disabled {
+        background-color: $color-gray-400;
+        cursor: not-allowed;
+        transform: none;
+        
+        &:hover {
+            transform: none;
+            box-shadow: none;
+        }
+    }
+}
+
+// =============================================================================
+// FORM GROUPS
+// =============================================================================
+
+.form-group {
+    margin-bottom: $spacing-lg;
+}
+
+.form-row {
+    display: flex;
+    gap: $spacing-md;
+    
+    @include mobile {
+        flex-direction: column;
+    }
+    
+    .form-group {
+        flex: 1;
+        margin-bottom: 0;
+    }
+}
+
+// =============================================================================
+// VALIDATION STYLES
+// =============================================================================
+
+.form-error {
+    color: #dc2626;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+}
+
+.form-success {
+    color: #059669;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+}
+
+input.error,
+textarea.error,
+select.error {
+    border-color: #dc2626;
+    
+    &:focus {
+        border-color: #dc2626;
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+}
+
+input.success,
+textarea.success,
+select.success {
+    border-color: #059669;
+    
+    &:focus {
+        border-color: #059669;
+        box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+    }
+}
+
+// =============================================================================
+// GUTENBERG FORM BLOCKS
+// =============================================================================
+
+.wp-block-form {
+    .wp-block-form__label {
+        display: block;
+        margin-bottom: $spacing-xs;
+        font-weight: $font-weight-medium;
+        color: $color-text-primary;
+        font-size: $font-size-sm;
+    }
+    
+    .wp-block-form__input {
+        width: 100%;
+        padding: $spacing-sm $spacing-md;
+        border: 1px solid $color-border;
+        border-radius: $border-radius-md;
+        font-family: $font-primary;
+        font-size: $font-size-base;
+        line-height: $line-height-normal;
+        color: $color-text-primary;
+        background-color: $color-bg-primary;
+        @include transition(border-color);
+        
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+        }
+    }
+    
+    .wp-block-form__textarea {
+        width: 100%;
+        padding: $spacing-sm $spacing-md;
+        border: 1px solid $color-border;
+        border-radius: $border-radius-md;
+        font-family: $font-primary;
+        font-size: $font-size-base;
+        line-height: $line-height-normal;
+        color: $color-text-primary;
+        background-color: $color-bg-primary;
+        resize: vertical;
+        min-height: 120px;
+        @include transition(border-color);
+        
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+        }
+    }
+    
+    .wp-block-form__select {
+        width: 100%;
+        padding: $spacing-sm $spacing-md;
+        border: 1px solid $color-border;
+        border-radius: $border-radius-md;
+        font-family: $font-primary;
+        font-size: $font-size-base;
+        line-height: $line-height-normal;
+        color: $color-text-primary;
+        background-color: $color-bg-primary;
+        cursor: pointer;
+        @include transition(border-color);
+        
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+        }
+    }
+    
+    .wp-block-form__button {
+        @include button-style($color-primary, $color-white);
+        cursor: pointer;
+        border: none;
+        
+        &:hover {
+            background-color: $color-primary-dark;
+        }
+    }
+}

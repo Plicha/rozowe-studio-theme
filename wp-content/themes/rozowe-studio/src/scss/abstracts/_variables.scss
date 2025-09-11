@@ -1,0 +1,153 @@
+// =============================================================================
+// DESIGN TOKENS FROM FIGMA
+// =============================================================================
+
+// =============================================================================
+// COLOR TOKENS
+// =============================================================================
+
+// Primary Colors (from Figma tokens)
+$color-black-700: #140d0d;    // Darkest
+$color-black-600: #221516;    // Dark
+$color-burgundy-500: #3a040f; // Primary color (burgundy)
+$color-burgundy-200: #9a9192; // Lighter burgundy
+$color-white-200: #e0dbd7;    // Warm white
+$color-white-100: #f4f5f1;    // Lightest
+
+// Semantic Color Mapping
+$color-primary: $color-burgundy-500;        // Primary color
+$color-primary-light: $color-burgundy-200;  // Lighter primary
+$color-primary-dark: $color-black-700;      // Darker primary
+
+$color-secondary: $color-burgundy-200;      // Secondary
+$color-secondary-light: $color-white-200;   // Lighter secondary
+$color-secondary-dark: $color-black-600;    // Darker secondary
+
+// Text Colors
+$color-text-primary: $color-black-700;      // Primary text
+$color-text-secondary: $color-burgundy-200; // Secondary text
+$color-text-muted: $color-white-200;        // Muted text
+
+// Background Colors
+$color-bg-primary: $color-white-100;        // Primary background
+$color-bg-secondary: $color-white-200;      // Secondary background
+$color-bg-muted: $color-white-200;          // Muted background
+
+// Border Colors
+$color-border: $color-white-200;            // Primary border
+$color-border-light: $color-white-100;      // Lighter border
+$color-border-dark: $color-burgundy-200;    // Darker border
+
+// Legacy colors (for compatibility)
+$color-white: $color-white-100;
+$color-black: $color-black-700;
+$color-gray-50: $color-white-100;
+$color-gray-100: $color-white-200;
+$color-gray-200: $color-burgundy-200;
+$color-gray-300: $color-burgundy-200;
+$color-gray-400: $color-burgundy-200;
+$color-gray-500: $color-burgundy-200;
+$color-gray-600: $color-burgundy-200;
+$color-gray-700: $color-black-600;
+$color-gray-800: $color-black-600;
+$color-gray-900: $color-black-700;
+
+// =============================================================================
+// SPACING TOKENS (from Figma)
+// =============================================================================
+
+$spacing-xs: 8px;   // gap_xs
+$spacing-sm: 16px;  // gap_s  
+$spacing-md: 32px;  // gap_m
+$spacing-lg: 40px;  // gap_l
+$spacing-xl: 80px;  // gap_xl
+
+// Additional spacing for flexibility
+$spacing-2xl: 120px;
+$spacing-3xl: 160px;
+$spacing-4xl: 200px;
+
+// =============================================================================
+// GRID SYSTEM VARIABLES
+// =============================================================================
+
+// Container
+$container-max-width: 1182px;
+$container-padding: $spacing-md; // 32px
+
+// Grid System (12 columns)
+$grid-columns: 12;
+$grid-gap: $spacing-xs; // 8px gap between columns
+
+// =============================================================================
+// FONT TOKENS (from Figma)
+// =============================================================================
+
+// Font Families
+$font-primary: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+$font-heading: 'EB Garamond', Georgia, 'Times New Roman', serif;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;    // Regular (from Figma)
+$font-weight-medium: 500;    // Medium (from Figma)
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Font Sizes (from Figma tokens)
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;       // P1, Button (from Figma)
+$font-size-lg: 18px;
+$font-size-xl: 20px;         // H3 (from Figma)
+$font-size-2xl: 24px;
+$font-size-3xl: 28px;
+$font-size-4xl: 32px;        // H2 (from Figma)
+$font-size-5xl: 40px;
+$font-size-6xl: 48px;
+
+// Line Heights
+$line-height-tight: 1.25;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;    // AUTO from Figma
+$line-height-relaxed: 1.625;
+$line-height-loose: 2;
+
+// =============================================================================
+// BREAKPOINT VARIABLES
+// =============================================================================
+
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// =============================================================================
+// BORDER RADIUS VARIABLES
+// =============================================================================
+
+$border-radius-sm: 4px;
+$border-radius-md: 6px;
+$border-radius-lg: 8px;
+$border-radius-xl: 12px;
+$border-radius-2xl: 16px;
+$border-radius-full: 9999px;
+
+// =============================================================================
+// SHADOW VARIABLES
+// =============================================================================
+
+$shadow-sm: 0 1px 2px 0 rgba(20, 13, 13, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(20, 13, 13, 0.1), 0 2px 4px -1px rgba(20, 13, 13, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(20, 13, 13, 0.1), 0 4px 6px -2px rgba(20, 13, 13, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(20, 13, 13, 0.1), 0 10px 10px -5px rgba(20, 13, 13, 0.04);
+
+// =============================================================================
+// TRANSITION VARIABLES
+// =============================================================================
+
+$transition-fast: 150ms ease-in-out;
+$transition-normal: 250ms ease-in-out;
+$transition-slow: 350ms ease-in-out;

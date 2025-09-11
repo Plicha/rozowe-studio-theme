@@ -1,0 +1,358 @@
+// =============================================================================
+// UTILITY CLASSES (Based on Figma Tokens)
+// =============================================================================
+
+// Import variables
+@import '../abstracts/variables';
+
+// =============================================================================
+// COLOR UTILITIES
+// =============================================================================
+
+// Text Colors (from Figma tokens)
+.text-black-700 { color: $color-black-700; }    // #140d0d
+.text-black-600 { color: $color-black-600; }    // #221516
+.text-burgundy-500 { color: $color-burgundy-500; } // #3a040f
+.text-burgundy-200 { color: $color-burgundy-200; } // #9a9192
+.text-white-200 { color: $color-white-200; }    // #e0dbd7
+.text-white-100 { color: $color-white-100; }    // #f4f5f1
+
+// Semantic text colors
+.text-primary { color: $color-primary; }
+.text-secondary { color: $color-secondary; }
+.text-muted { color: $color-text-muted; }
+
+// Background Colors (from Figma tokens)
+.bg-black-700 { background-color: $color-black-700; }
+.bg-black-600 { background-color: $color-black-600; }
+.bg-burgundy-500 { background-color: $color-burgundy-500; }
+.bg-burgundy-200 { background-color: $color-burgundy-200; }
+.bg-white-200 { background-color: $color-white-200; }
+.bg-white-100 { background-color: $color-white-100; }
+
+// Semantic background colors
+.bg-primary { background-color: $color-primary; }
+.bg-secondary { background-color: $color-secondary; }
+.bg-muted { background-color: $color-bg-muted; }
+
+// Border Colors (from Figma tokens)
+.border-black-700 { border-color: $color-black-700; }
+.border-black-600 { border-color: $color-black-600; }
+.border-burgundy-500 { border-color: $color-burgundy-500; }
+.border-burgundy-200 { border-color: $color-burgundy-200; }
+.border-white-200 { border-color: $color-white-200; }
+.border-white-100 { border-color: $color-white-100; }
+
+// Semantic border colors
+.border-primary { border-color: $color-primary; }
+.border-secondary { border-color: $color-secondary; }
+.border-muted { border-color: $color-border; }
+
+// =============================================================================
+// FONT UTILITIES
+// =============================================================================
+
+// Font Families (from Figma tokens)
+.font-lato { font-family: $font-primary; }
+.font-eb-garamond { font-family: $font-heading; }
+
+// Font Weights (from Figma tokens)
+.font-light { font-weight: $font-weight-light; }
+.font-normal { font-weight: $font-weight-normal; }    // Regular
+.font-medium { font-weight: $font-weight-medium; }    // Medium
+.font-semibold { font-weight: $font-weight-semibold; }
+.font-bold { font-weight: $font-weight-bold; }
+.font-black { font-weight: $font-weight-black; }
+
+// Font Sizes (from Figma tokens)
+.text-xs { font-size: $font-size-xs; }      // 12px
+.text-sm { font-size: $font-size-sm; }      // 14px
+.text-base { font-size: $font-size-base; }  // 16px (P1, Button)
+.text-lg { font-size: $font-size-lg; }      // 18px
+.text-xl { font-size: $font-size-xl; }      // 20px (H3)
+.text-2xl { font-size: $font-size-2xl; }    // 24px
+.text-3xl { font-size: $font-size-3xl; }    // 28px
+.text-4xl { font-size: $font-size-4xl; }    // 32px (H2)
+.text-5xl { font-size: $font-size-5xl; }    // 40px
+.text-6xl { font-size: $font-size-6xl; }    // 48px
+
+// Line Heights
+.leading-tight { line-height: $line-height-tight; }
+.leading-snug { line-height: $line-height-snug; }
+.leading-normal { line-height: $line-height-normal; }
+.leading-relaxed { line-height: $line-height-relaxed; }
+.leading-loose { line-height: $line-height-loose; }
+
+// =============================================================================
+// SPACING UTILITIES (from Figma tokens)
+// =============================================================================
+
+// Margin (from Figma gap tokens)
+.m-xs { margin: $spacing-xs; }    // 8px
+.m-sm { margin: $spacing-sm; }    // 16px
+.m-md { margin: $spacing-md; }    // 32px
+.m-lg { margin: $spacing-lg; }    // 40px
+.m-xl { margin: $spacing-xl; }    // 80px
+
+// Margin Top
+.mt-xs { margin-top: $spacing-xs; }
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+
+// Margin Bottom
+.mb-xs { margin-bottom: $spacing-xs; }
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+
+// Margin Left
+.ml-xs { margin-left: $spacing-xs; }
+.ml-sm { margin-left: $spacing-sm; }
+.ml-md { margin-left: $spacing-md; }
+.ml-lg { margin-left: $spacing-lg; }
+.ml-xl { margin-left: $spacing-xl; }
+
+// Margin Right
+.mr-xs { margin-right: $spacing-xs; }
+.mr-sm { margin-right: $spacing-sm; }
+.mr-md { margin-right: $spacing-md; }
+.mr-lg { margin-right: $spacing-lg; }
+.mr-xl { margin-right: $spacing-xl; }
+
+// Margin X (horizontal)
+.mx-xs { margin-left: $spacing-xs; margin-right: $spacing-xs; }
+.mx-sm { margin-left: $spacing-sm; margin-right: $spacing-sm; }
+.mx-md { margin-left: $spacing-md; margin-right: $spacing-md; }
+.mx-lg { margin-left: $spacing-lg; margin-right: $spacing-lg; }
+.mx-xl { margin-left: $spacing-xl; margin-right: $spacing-xl; }
+
+// Margin Y (vertical)
+.my-xs { margin-top: $spacing-xs; margin-bottom: $spacing-xs; }
+.my-sm { margin-top: $spacing-sm; margin-bottom: $spacing-sm; }
+.my-md { margin-top: $spacing-md; margin-bottom: $spacing-md; }
+.my-lg { margin-top: $spacing-lg; margin-bottom: $spacing-lg; }
+.my-xl { margin-top: $spacing-xl; margin-bottom: $spacing-xl; }
+
+// Padding (from Figma gap tokens)
+.p-xs { padding: $spacing-xs; }
+.p-sm { padding: $spacing-sm; }
+.p-md { padding: $spacing-md; }
+.p-lg { padding: $spacing-lg; }
+.p-xl { padding: $spacing-xl; }
+
+// Padding Top
+.pt-xs { padding-top: $spacing-xs; }
+.pt-sm { padding-top: $spacing-sm; }
+.pt-md { padding-top: $spacing-md; }
+.pt-lg { padding-top: $spacing-lg; }
+.pt-xl { padding-top: $spacing-xl; }
+
+// Padding Bottom
+.pb-xs { padding-bottom: $spacing-xs; }
+.pb-sm { padding-bottom: $spacing-sm; }
+.pb-md { padding-bottom: $spacing-md; }
+.pb-lg { padding-bottom: $spacing-lg; }
+.pb-xl { padding-bottom: $spacing-xl; }
+
+// Padding Left
+.pl-xs { padding-left: $spacing-xs; }
+.pl-sm { padding-left: $spacing-sm; }
+.pl-md { padding-left: $spacing-md; }
+.pl-lg { padding-left: $spacing-lg; }
+.pl-xl { padding-left: $spacing-xl; }
+
+// Padding Right
+.pr-xs { padding-right: $spacing-xs; }
+.pr-sm { padding-right: $spacing-sm; }
+.pr-md { padding-right: $spacing-md; }
+.pr-lg { padding-right: $spacing-lg; }
+.pr-xl { padding-right: $spacing-xl; }
+
+// Padding X (horizontal)
+.px-xs { padding-left: $spacing-xs; padding-right: $spacing-xs; }
+.px-sm { padding-left: $spacing-sm; padding-right: $spacing-sm; }
+.px-md { padding-left: $spacing-md; padding-right: $spacing-md; }
+.px-lg { padding-left: $spacing-lg; padding-right: $spacing-lg; }
+.px-xl { padding-left: $spacing-xl; padding-right: $spacing-xl; }
+
+// Padding Y (vertical)
+.py-xs { padding-top: $spacing-xs; padding-bottom: $spacing-xs; }
+.py-sm { padding-top: $spacing-sm; padding-bottom: $spacing-sm; }
+.py-md { padding-top: $spacing-md; padding-bottom: $spacing-md; }
+.py-lg { padding-top: $spacing-lg; padding-bottom: $spacing-lg; }
+.py-xl { padding-top: $spacing-xl; padding-bottom: $spacing-xl; }
+
+// =============================================================================
+// TYPOGRAPHY UTILITIES
+// =============================================================================
+
+// Text Alignment
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+// Text Decoration
+.underline { text-decoration: underline; }
+.no-underline { text-decoration: none; }
+.line-through { text-decoration: line-through; }
+
+// Text Transform
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+// =============================================================================
+// DISPLAY UTILITIES
+// =============================================================================
+
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.hidden { display: none; }
+
+// =============================================================================
+// FLEXBOX UTILITIES
+// =============================================================================
+
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+
+// =============================================================================
+// BORDER UTILITIES
+// =============================================================================
+
+.border { border: 1px solid $color-border; }
+.border-t { border-top: 1px solid $color-border; }
+.border-b { border-bottom: 1px solid $color-border; }
+.border-l { border-left: 1px solid $color-border; }
+.border-r { border-right: 1px solid $color-border; }
+
+.border-0 { border: 0; }
+.border-2 { border: 2px solid $color-border; }
+.border-4 { border: 4px solid $color-border; }
+
+// Border Radius
+.rounded-none { border-radius: 0; }
+.rounded-sm { border-radius: $border-radius-sm; }
+.rounded { border-radius: $border-radius-md; }
+.rounded-lg { border-radius: $border-radius-lg; }
+.rounded-xl { border-radius: $border-radius-xl; }
+.rounded-full { border-radius: $border-radius-full; }
+
+// =============================================================================
+// SHADOW UTILITIES
+// =============================================================================
+
+.shadow-sm { box-shadow: $shadow-sm; }
+.shadow { box-shadow: $shadow-md; }
+.shadow-lg { box-shadow: $shadow-lg; }
+.shadow-xl { box-shadow: $shadow-xl; }
+.shadow-none { box-shadow: none; }
+
+// =============================================================================
+// RESPONSIVE UTILITIES
+// =============================================================================
+
+// Mobile first approach
+@include mobile {
+    .mobile\:hidden { display: none; }
+    .mobile\:block { display: block; }
+    .mobile\:flex { display: flex; }
+    .mobile\:text-center { text-align: center; }
+    .mobile\:text-left { text-align: left; }
+    .mobile\:text-right { text-align: right; }
+}
+
+@include tablet {
+    .tablet\:hidden { display: none; }
+    .tablet\:block { display: block; }
+    .tablet\:flex { display: flex; }
+    .tablet\:text-center { text-align: center; }
+    .tablet\:text-left { text-align: left; }
+    .tablet\:text-right { text-align: right; }
+}
+
+@include desktop {
+    .desktop\:hidden { display: none; }
+    .desktop\:block { display: block; }
+    .desktop\:flex { display: flex; }
+    .desktop\:text-center { text-align: center; }
+    .desktop\:text-left { text-align: left; }
+    .desktop\:text-right { text-align: right; }
+}
+
+// =============================================================================
+// LAYOUT UTILITIES
+// =============================================================================
+
+// Full-width breakout utility class
+.full-width {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    max-width: 100vw;
+    z-index: 10;
+    position: relative;
+}
+
+// Container utility class
+.container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+}
+
+// Grid utility classes
+.grid {
+    display: grid;
+    grid-template-columns: repeat($grid-columns, 1fr);
+    gap: $grid-gap;
+}
+
+// Grid column utilities
+.grid-col-1 { grid-column: span 1; }
+.grid-col-2 { grid-column: span 2; }
+.grid-col-3 { grid-column: span 3; }
+.grid-col-4 { grid-column: span 4; }
+.grid-col-5 { grid-column: span 5; }
+.grid-col-6 { grid-column: span 6; }
+.grid-col-7 { grid-column: span 7; }
+.grid-col-8 { grid-column: span 8; }
+.grid-col-9 { grid-column: span 9; }
+.grid-col-10 { grid-column: span 10; }
+.grid-col-11 { grid-column: span 11; }
+.grid-col-12 { grid-column: span 12; }
+
+// Grid offset utilities
+.grid-offset-1 { grid-column-start: 2; }
+.grid-offset-2 { grid-column-start: 3; }
+.grid-offset-3 { grid-column-start: 4; }
+.grid-offset-4 { grid-column-start: 5; }
+.grid-offset-5 { grid-column-start: 6; }
+.grid-offset-6 { grid-column-start: 7; }
+.grid-offset-7 { grid-column-start: 8; }
+.grid-offset-8 { grid-column-start: 9; }
+.grid-offset-9 { grid-column-start: 10; }
+.grid-offset-10 { grid-column-start: 11; }
+.grid-offset-11 { grid-column-start: 12; }
+.grid-offset-12 { grid-column-start: 13; }

@@ -1,0 +1,19 @@
+// Strona główna - podstawowe style
+.front-page {
+    overflow-x: hidden;
+}
+
+// Podstawowe style dla stron
+.page-content {
+    padding: 0;
+    max-width: 1128px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+    color: $color-primary;
+    text-align: center;
+}

@@ -1,0 +1,119 @@
+/* Story Frames Block - Editor Styles */
+
+.story-frames-block-editor {
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    margin: 20px 0;
+    background-color: #3a040f;
+    color: #f4f5f1;
+    padding: 20px 0;
+}
+
+.story-frames-block-editor .wp-block-heading,
+.story-frames-block-editor .wp-block-paragraph,
+.story-frames-block-editor .wp-block-list,
+.story-frames-block-editor .wp-block-list li {
+    color: #f4f5f1 !important;
+}
+
+.story-frames-placeholder {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+/* Editor-specific grid adjustments */
+.story-frames-block-editor .grid {
+    min-height: 200px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 8px;
+}
+
+.story-frames-block-editor .story-frames-content {
+    min-height: 100px;
+}
+
+/* Desktop layout in editor */
+@media (min-width: 1024px) {
+    .story-frames-block-editor .grid-col-5 {
+        grid-column: span 5;
+    }
+    
+    .story-frames-block-editor .grid-col-1 {
+        grid-column: span 1;
+    }
+    
+    .story-frames-block-editor .grid-col-6 {
+        grid-column: span 6;
+    }
+}
+
+/* Tablet layout in editor */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .story-frames-block-editor .grid-col-5 {
+        grid-column: span 6;
+    }
+    
+    .story-frames-block-editor .grid-col-1 {
+        display: none;
+    }
+    
+    .story-frames-block-editor .grid-col-6 {
+        grid-column: span 6;
+    }
+}
+
+/* Mobile layout in editor */
+@media (max-width: 639px) {
+    .story-frames-block-editor .grid-col-5 {
+        grid-column: span 12;
+        order: 1;
+    }
+    
+    .story-frames-block-editor .grid-col-1 {
+        display: none;
+    }
+    
+    .story-frames-block-editor .grid-col-6 {
+        grid-column: span 12;
+        order: 2;
+    }
+}
+
+/* Ensure proper spacing in editor */
+.story-frames-block-editor .container {
+    max-width: 1182px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* Editor-specific typography */
+.story-frames-block-editor .wp-block-heading h1,
+.story-frames-block-editor .wp-block-heading h2,
+.story-frames-block-editor .wp-block-heading h3,
+.story-frames-block-editor .wp-block-heading h4,
+.story-frames-block-editor .wp-block-heading h5,
+.story-frames-block-editor .wp-block-heading h6 {
+    color: #f4f5f1 !important;
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    margin-bottom: 16px;
+}
+
+.story-frames-block-editor .wp-block-paragraph {
+    color: #f4f5f1 !important;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin-bottom: 16px;
+}
+
+/* Content wrapper styles */
+.story-frames-block-editor .story-frames-content-wrapper {
+    /* Add any specific styles for the wrapper here */
+}
+
+.story-frames-block-editor .story-frames-content {
+    min-height: 100px;
+}
