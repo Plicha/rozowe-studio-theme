@@ -26,3 +26,4 @@ require_once get_template_directory() . '/inc/helpers.php';
  */
 require_once get_template_directory() . '/blocks/main-banner/main-banner.php';
 require_once get_template_directory() . '/blocks/story-frames/story-frames.php';
+require_once get_template_directory() . '/blocks/content-letter/content-letter.php';
