@@ -1,0 +1,62 @@
+/* Contact Form Block - Editor Styles */
+.contact-form-block-editor {
+    padding: 1rem;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    margin: 1rem 0;
+    background-color: #f9f9f9;
+}
+
+.contact-form-preview {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #e1e1e1;
+}
+
+.contact-form-preview .contact-form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: #1e1e1e;
+}
+
+.contact-form-placeholder {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.contact-form-placeholder strong {
+    color: #007cba;
+    font-style: normal;
+    font-family: monospace;
+    background-color: #f8f9fa;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+/* Inspector Controls Styling */
+.components-base-control__label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.components-base-control__help {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+/* Text Control Styling */
+.components-text-control__input {
+    font-family: monospace;
+    font-size: 0.9rem;
+}
