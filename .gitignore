@@ -69,7 +69,6 @@ yarn-error.log*
 
 # Build files
 .parcel-cache/
-dist/
 build/
 
 # Environment files
