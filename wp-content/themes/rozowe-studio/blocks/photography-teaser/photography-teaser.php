@@ -93,25 +93,44 @@ function rozowe_studio_render_photography_teaser_block($attributes, $content) {
     $content_left_class = $content_column_on_left ? 'content-column-left' : '';
     $letter_left_class = $letter_on_left ? 'letter-left' : '';
 
-    // Build the content HTML
-    $content_html = '';
+    // Get background image URL
+    $background_url = $background_image ? $background_image['url'] : '';
+
+    // Build the final HTML
+    $block_classes = 'photography-teaser-block bg-white-200 ' . $content_left_class . ' ' . $letter_left_class;
     
-    // Add letter if provided
-    if ($letter) {
-        $content_html .= '<div class="photography-teaser-letter">' . esc_html($letter) . '</div>';
+    $block_html = '<div class="' . esc_attr($block_classes) . '">';
+    $block_html .= '<div class="container">';
+    $block_html .= '<div class="grid">';
+    
+    // Image column (6 columns on desktop, full width on mobile/tablet)
+    $block_html .= '<div class="grid-col-6 photography-teaser-image-column">';
+    if ($background_url) {
+        $block_html .= '<img src="' . esc_url($background_url) . '" alt="' . esc_attr($background_image['alt'] ?? '') . '" class="photography-teaser-image">';
+    }
+    $block_html .= '</div>'; // Close photography-teaser-image-column
+    
+    // Content column (6 columns on desktop, full width on mobile/tablet)
+    $block_html .= '<div class="grid-col-6 photography-teaser-content-column">';
+    
+    // Add letter if provided and letter-on-left is true
+    if ($letter && $letter_on_left) {
+        $block_html .= '<div class="photography-teaser-letter">' . esc_html($letter) . '</div>';
     }
     
-    // Add content wrapper
-    $content_html .= '<div class="photography-teaser-content"><p>';
+    $block_html .= '<div class="photography-teaser-content-wrapper">';
     
-    // Add content from attributes
+    // Add letter if provided and letter-on-left is false
+    if ($letter && !$letter_on_left) {
+        $block_html .= '<div class="photography-teaser-letter">' . esc_html($letter) . '</div>';
+    }
+    
+    // Add content
     if ($block_content) {
-        $content_html .= wp_kses_post($block_content);
+        $block_html .= '<div class="photography-teaser-content">' . wp_kses_post($block_content) . '</div>';
     }
     
-    $content_html .= '</p></div>'; // Close photography-teaser-content
-    
-    // Add link if provided (outside of photography-teaser-content)
+    // Add link if provided
     if ($link_url) {
         $icon_html = $link_icon ? '<span class="btn-icon">' . wp_kses($link_icon, array(
             'svg' => array(
@@ -156,21 +175,12 @@ function rozowe_studio_render_photography_teaser_block($attributes, $content) {
             )
         )) . '</span>' : '';
         
-        $content_html .= '<div class="photography-teaser-link"><a href="' . esc_url($link_url) . '" class="btn"><span class="btn-text">' . esc_html($link_text) . '</span>' . $icon_html . '</a></div>';
+        $block_html .= '<div class="photography-teaser-link"><a href="' . esc_url($link_url) . '" class="btn"><span class="btn-text">' . esc_html($link_text) . '</span>' . $icon_html . '</a></div>';
     }
-
-    // Get background image URL
-    $background_url = $background_image ? $background_image['url'] : '';
-
-    // Build the final HTML
-    $block_classes = 'photography-teaser-block ' . $content_left_class . ' ' . $letter_left_class;
-    $block_style = $background_url ? ' style="background-image: url(\'' . esc_url($background_url) . '\');"' : '';
     
-    $block_html = '<div class="' . esc_attr($block_classes) . '"' . $block_style . '>';
-    $block_html .= '<div class="container">';
-    $block_html .= '<div class="photography-teaser-wrapper">';
-    $block_html .= $content_html;
-    $block_html .= '</div>'; // Close photography-teaser-wrapper
+    $block_html .= '</div>'; // Close photography-teaser-content-wrapper
+    $block_html .= '</div>'; // Close photography-teaser-content-column
+    $block_html .= '</div>'; // Close grid
     $block_html .= '</div>'; // Close container
     $block_html .= '</div>'; // Close photography-teaser-block
 

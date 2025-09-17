@@ -1,2 +1,257 @@
-// Photography Teaser Block Styles
-// Styles will be added in the next stage
+// =============================================================================
+// PHOTOGRAPHY TEASER BLOCK
+// =============================================================================
+
+// Import variables and mixins
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// =============================================================================
+// PHOTOGRAPHY TEASER BLOCK STYLES
+// =============================================================================
+
+.photography-teaser-block {
+    position: relative;
+    background-color: $color-white-200;
+    overflow: hidden;
+    padding-bottom: $spacing-3xl;
+
+    // Layout variants
+    &.content-column-left {
+        .photography-teaser-image-column {
+            order: 2;
+        }
+        
+        .photography-teaser-content-column {
+            order: 1;
+        }
+    }
+
+    &.letter-left {
+        .photography-teaser-letter {
+            left: 0;
+            top: calc(40px + $spacing-3xl);
+            right: auto;
+        }
+    }
+}
+
+// =============================================================================
+// IMAGE COLUMN
+// =============================================================================
+
+.photography-teaser-image-column {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photography-teaser-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+// =============================================================================
+// CONTENT COLUMN
+// =============================================================================
+
+.photography-teaser-content-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: $spacing-lg 0;
+}
+
+.photography-teaser-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 66.66%;
+    padding-left: $spacing-md;
+}
+
+// =============================================================================
+// BACKGROUND LETTER
+// =============================================================================
+
+.photography-teaser-letter {
+    position: absolute;
+    left: 75%;
+    top: 60%;
+    transform: translateY(-70%);
+    font-size: 350px;
+    font-weight: $font-weight-medium;
+    color: $color-black-600;
+    line-height: .75;
+    z-index: 1;
+    pointer-events: none;
+    font-family: $font-heading;
+    
+    @include tablet {
+        font-size: 200px;
+        right: -15%;
+    }
+    
+    @include mobile {
+        font-size: 150px;
+        right: -10%;
+        top: 20%;
+        transform: none;
+    }
+}
+
+// =============================================================================
+// CONTENT AREA
+// =============================================================================
+
+.photography-teaser-content {
+    position: relative;
+    z-index: 2;
+    margin-bottom: $spacing-sm;
+    background-color: $color-white-200;
+    text-align: justify;
+    padding: 4px $spacing-xs 0px 0;
+    p {
+        font-size: $font-size-base;
+        line-height: $line-height-relaxed;
+        color: $color-text-primary;
+        margin-bottom: $spacing-sm;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: $color-text-primary;
+        font-family: $font-heading;
+        margin-bottom: $spacing-sm;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// =============================================================================
+// LINK STYLING
+// =============================================================================
+
+.photography-teaser-link {
+    position: relative;
+    z-index: 2;
+    width: max-content;
+    
+    .btn {
+        font-size: $font-size-xl; // 20px
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        border-radius: 0;
+        border: none;
+        background-color: $color-white-200;
+        color: $color-black-600;
+        padding: 0;
+        
+        &:hover {
+            box-shadow: none;
+        }
+        
+        .btn-icon {
+            display: flex;
+            justify-content: center;
+            
+            svg path {
+                stroke: $color-black-600;
+            }
+        }
+    }
+}
+
+// =============================================================================
+// RESPONSIVE LAYOUT
+// =============================================================================
+
+// Tablet and mobile - full width columns
+@include tablet_and_mobile {
+    .photography-teaser-block {
+        padding-bottom: $spacing-xl;
+        .photography-teaser-image-column,
+        .photography-teaser-content-column {
+            grid-column: span 12;
+            padding: 0;
+        }
+        
+        .photography-teaser-content-wrapper {
+            grid-column: span 12;
+            padding: 0;
+            width: 100%;
+        }
+        .photography-teaser-letter{
+            display: none;
+        }
+
+        .photography-teaser-image-column{
+            margin-bottom: $spacing-md;
+        }
+
+        .photography-teaser-content{
+            padding: 0;
+        }
+
+        &.content-column-left{
+            .photography-teaser-image-column{
+                order: 1;
+            }
+            .photography-teaser-content-column{
+                order: 2;
+            }
+        }
+        & > .container{
+            padding: 0;
+        }
+    }
+}
+
+// =============================================================================
+// LAYOUT VARIANTS
+// =============================================================================
+
+
+// Letter on left variant
+.photography-teaser-block.letter-left:not(.content-column-left) {
+    .photography-teaser-content-column {
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-bottom: 0;
+    }
+    .photography-teaser-content-wrapper{
+        padding: 0;
+        .photography-teaser-content{
+            padding: $spacing-xs 0 0 $spacing-xs;
+        }
+        .photography-teaser-link{
+            padding-left: $spacing-xs;
+        }
+    }
+}
+
+// Combined variants
+.photography-teaser-block.content-column-left.letter-left {
+    .photography-teaser-letter {
+        right: -20%;
+        left: auto;
+        
+        @include tablet {
+            right: -15%;
+        }
+        
+        @include mobile {
+            right: -10%;
+        }
+    }
+}

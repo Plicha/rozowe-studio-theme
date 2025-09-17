@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<main id="main" class="site-main photography-page">
+<main id="main" class="site-main photography-page bg-white-200">
     <div class="container">
         <div class="page-content">
             <?php
