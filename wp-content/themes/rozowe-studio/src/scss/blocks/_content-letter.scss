@@ -95,6 +95,9 @@
         svg path {
             stroke: $color-white-100;
         }
+        .content-letter-section-title{
+            color: $color-white-100;
+        }
     }
 
     // Content positioning variant
@@ -225,6 +228,43 @@
 }
 
 // =============================================================================
+// MOBILE BACKGROUND IMAGE
+// =============================================================================
+
+.content-letter-mobile-bg {
+    display: none; // Hidden by default (desktop)
+    margin-bottom: $spacing-sm;
+    
+    @include tablet_and_mobile {
+        display: block; // Visible on tablet and mobile
+    }
+}
+
+.content-letter-mobile-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+// =============================================================================
+// SECTION TITLE
+// =============================================================================
+
+.content-letter-section-title {
+    display: none;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-medium;
+    color: $color-black-600;
+    font-family: $font-heading;
+    margin-bottom: $spacing-sm;
+    line-height: $line-height-tight;
+    
+    @include tablet_and_mobile {
+        display: block;
+    }
+}
+
+// =============================================================================
 // CONTENT AREA
 // =============================================================================
 
@@ -290,9 +330,6 @@
 // Tablet and small desktop
 @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-lg) {
     .content-letter-block {
-        &:not(.bg-position-center) .content-letter-wrapper {
-            width: 80%;
-        }
         
         &.content-right {
             .content-letter-bg {
@@ -318,43 +355,34 @@
 
 // Tablet and mobile
 @include tablet_and_mobile {
-    .content-letter-block {
+    .content-letter-block,
+    .content-letter-block.bg-white-200.bg-full-width,
+    .content-letter-block.bg-burgundy-500.bg-full-width,
+    .content-letter-block.bg-position-center
+    {
+        padding: 0;
+        border-top-width: $spacing-xl;
+        border-bottom-width: $spacing-xl;
+        min-height: unset;
+        background-image: none !important;
         .grid-col-4,
         .grid-col-6 {
             grid-column: span 12;
         }
         
-        &:not(.bg-position-center) .content-letter-wrapper {
-            border-radius: 5px;
+        .content-letter-wrapper{
+            padding: 0;
         }
-    }
-}
-
-// Tablet only
-@include tablet {
-    .content-letter-bg {
-        line-height: 0.8;
-        top: calc(50% - 225px);
-        right: -15%;
-    }
-}
-
-// Mobile only
-@include mobile {
-    .content-letter-block {
-        &.bg-full-width {
-            min-height: 950px;
+        .content-letter-bg{
+            display: none;
         }
-        
-        .content-letter-wrapper {
-            width: 90%;
+        .content-letter-content{
+            width: 100%;
+            padding: 0;
+            margin-top: unset;
         }
-        
-        .content-letter-bg {
-            line-height: 0.8;
-            top: -15%;
-            right: -15vw;
-            font-size: 250px;
+        .content-letter-link{
+            margin-top: $spacing-sm;
         }
     }
 }

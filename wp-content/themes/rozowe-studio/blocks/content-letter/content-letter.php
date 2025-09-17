@@ -79,6 +79,14 @@ function rozowe_studio_register_content_letter_block() {
                 'type' => 'object',
                 'default' => null,
             ),
+            'sectionTitle' => array(
+                'type' => 'string',
+                'default' => '',
+            ),
+            'mobileBackgroundImage' => array(
+                'type' => 'object',
+                'default' => null,
+            ),
         ),
     ));
 }
@@ -98,9 +106,12 @@ function rozowe_studio_render_content_letter_block($attributes, $content) {
     $background_position_center = $attributes['backgroundPositionCenter'] ?? false;
     $background_full_width = $attributes['backgroundFullWidth'] ?? false;
     $background_image = $attributes['backgroundImage'] ?? null;
+    $section_title = $attributes['sectionTitle'] ?? '';
+    $mobile_background_image = $attributes['mobileBackgroundImage'] ?? null;
 
     // Get background image URL
     $background_url = $background_image ? $background_image['url'] : '';
+    $mobile_background_url = $mobile_background_image ? $mobile_background_image['url'] : '';
 
     // Determine classes based on settings
     $background_class = $dark_background ? 'bg-burgundy-500' : 'bg-white-200';
@@ -126,7 +137,19 @@ function rozowe_studio_render_content_letter_block($attributes, $content) {
     }
     
     // Add content wrapper
-    $content_html .= '<div class="content-letter-content"><p>';
+    $content_html .= '<div class="content-letter-content">';
+    
+    // Add mobile background image if provided (visible only on mobile and tablet)
+    if ($mobile_background_url) {
+        $content_html .= '<div class="content-letter-mobile-bg"><img src="' . esc_url($mobile_background_url) . '" alt="' . esc_attr($mobile_background_image['alt'] ?? '') . '" class="content-letter-mobile-image"></div>';
+    }
+    
+    // Add section title if provided (visible only on mobile and tablet)
+    if ($section_title) {
+        $content_html .= '<h2 class="content-letter-section-title">' . esc_html($section_title) . '</h2>';
+    }
+    
+    $content_html .= '<p>';
     
     // Add content from attributes
     if ($block_content) {

@@ -67,6 +67,14 @@
                 type: 'object',
                 default: null,
             },
+            sectionTitle: {
+                type: 'string',
+                default: '',
+            },
+            mobileBackgroundImage: {
+                type: 'object',
+                default: null,
+            },
         },
 
         edit: function(props) {
@@ -139,12 +147,37 @@
                 });
             }
 
+            function onSectionTitleChange(value) {
+                setAttributes({
+                    sectionTitle: value
+                });
+            }
+
+            function onSelectMobileBackgroundImage(media) {
+                setAttributes({
+                    mobileBackgroundImage: media
+                });
+            }
+
+            function onRemoveMobileBackgroundImage() {
+                setAttributes({
+                    mobileBackgroundImage: null
+                });
+            }
+
             return el(Fragment, {},
                 el(InspectorControls, {},
                     el(PanelBody, {
                         title: __('Content Settings', 'rozowe-studio'),
                         initialOpen: true
                     },
+                        el(TextControl, {
+                            label: __('Section Title', 'rozowe-studio'),
+                            value: attributes.sectionTitle,
+                            onChange: onSectionTitleChange,
+                            placeholder: __('Enter section title...', 'rozowe-studio'),
+                            help: __('This title will be visible only on mobile devices', 'rozowe-studio')
+                        }),
                         el(TextareaControl, {
                             label: __('Content', 'rozowe-studio'),
                             value: attributes.content,
@@ -248,6 +281,41 @@
                             isLink: true,
                             isDestructive: true
                         }, __('Remove Background Image', 'rozowe-studio'))
+                    ),
+                    el(PanelBody, {
+                        title: __('Mobile Background Image', 'rozowe-studio'),
+                        initialOpen: false
+                    },
+                        el(MediaUploadCheck, {},
+                            el(MediaUpload, {
+                                onSelect: onSelectMobileBackgroundImage,
+                                allowedTypes: ['image'],
+                                value: attributes.mobileBackgroundImage ? attributes.mobileBackgroundImage.id : '',
+                                render: function(obj) {
+                                    return el(Button, {
+                                        className: attributes.mobileBackgroundImage ? 'editor-post-featured-image__preview' : 'editor-post-featured-image__toggle',
+                                        onClick: obj.open
+                                    }, !attributes.mobileBackgroundImage ? __('Set Mobile Background Image', 'rozowe-studio') : 
+                                        el('img', {
+                                            src: attributes.mobileBackgroundImage.sizes.medium ? attributes.mobileBackgroundImage.sizes.medium.url : attributes.mobileBackgroundImage.url,
+                                            alt: attributes.mobileBackgroundImage.alt || ''
+                                        })
+                                    );
+                                }
+                            })
+                        ),
+                        attributes.mobileBackgroundImage && el(Button, {
+                            onClick: onRemoveMobileBackgroundImage,
+                            isLink: true,
+                            isDestructive: true
+                        }, __('Remove Mobile Background Image', 'rozowe-studio')),
+                        el('p', {
+                            style: {
+                                fontSize: '12px',
+                                fontStyle: 'italic',
+                                marginTop: '10px'
+                            }
+                        }, __('This image will be displayed only on mobile and tablet devices above the section title.', 'rozowe-studio'))
                     )
                 ),
                 // Dynamic editor view with current values
@@ -269,6 +337,44 @@
                             fontWeight: '500'
                         }
                     }, __('Content with Letter Block', 'rozowe-studio')),
+                    
+                    // Show mobile background image if set
+                    attributes.mobileBackgroundImage && el('div', {
+                        style: {
+                            marginBottom: '10px',
+                            textAlign: 'center'
+                        }
+                    }, 
+                        el('div', {
+                            style: {
+                                fontSize: '12px',
+                                marginBottom: '5px',
+                                opacity: 0.7
+                            }
+                        }, __('Mobile Background Image:', 'rozowe-studio')),
+                        el('img', {
+                            src: attributes.mobileBackgroundImage.sizes.medium ? attributes.mobileBackgroundImage.sizes.medium.url : attributes.mobileBackgroundImage.url,
+                            alt: attributes.mobileBackgroundImage.alt || '',
+                            style: {
+                                maxWidth: '200px',
+                                height: 'auto',
+                                borderRadius: '4px',
+                                border: '1px solid ' + (attributes.darkBackground ? '#9a9192' : '#e0dbd7')
+                            }
+                        })
+                    ),
+                    
+                    // Show section title if set
+                    attributes.sectionTitle && el('div', {
+                        style: {
+                            fontSize: '18px',
+                            fontWeight: '500',
+                            marginBottom: '10px',
+                            color: attributes.darkBackground ? '#f4f5f1' : '#3a040f',
+                            borderBottom: '1px solid ' + (attributes.darkBackground ? '#9a9192' : '#e0dbd7'),
+                            paddingBottom: '5px'
+                        }
+                    }, __('Section Title: ', 'rozowe-studio') + attributes.sectionTitle),
                     
                     // Show letter if set
                     attributes.letter && el('div', {
