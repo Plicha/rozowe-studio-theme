@@ -28,3 +28,4 @@ require_once get_template_directory() . '/blocks/main-banner/main-banner.php';
 require_once get_template_directory() . '/blocks/story-frames/story-frames.php';
 require_once get_template_directory() . '/blocks/content-letter/content-letter.php';
 require_once get_template_directory() . '/blocks/contact-form/contact-form.php';
+require_once get_template_directory() . '/blocks/photography-teaser/photography-teaser.php';

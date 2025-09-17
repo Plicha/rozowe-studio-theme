@@ -27,6 +27,7 @@ Text Domain: rozowe-studio
 @import 'blocks/story-frames';
 @import 'blocks/content-letter';
 @import 'blocks/contact-form';
+@import 'blocks/photography-teaser';
 
 // Layout
 @import 'layout/header';
@@ -35,6 +36,7 @@ Text Domain: rozowe-studio
 
 // Pages
 @import 'pages/home';
+@import 'pages/photography';
 
 // Responsive
 @import 'responsive/mobile';

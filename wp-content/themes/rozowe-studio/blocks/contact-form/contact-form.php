@@ -19,7 +19,7 @@ function rozowe_studio_contact_form_block_assets() {
         'rozowe-studio-contact-form-editor',
         get_template_directory_uri() . '/blocks/contact-form/contact-form-editor.js',
         array('wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-i18n'),
-        '1.0.0',
+        '1.0.1',
         true
     );
 
@@ -31,13 +31,6 @@ function rozowe_studio_contact_form_block_assets() {
         '1.0.0'
     );
 
-    // Frontend style
-    wp_register_style(
-        'rozowe-studio-contact-form',
-        get_template_directory_uri() . '/blocks/contact-form/contact-form.css',
-        array(),
-        '1.0.0'
-    );
 }
 add_action('enqueue_block_editor_assets', 'rozowe_studio_contact_form_block_assets');
 
@@ -54,7 +47,6 @@ function rozowe_studio_register_contact_form_block() {
     register_block_type('rozowe-studio/contact-form', array(
         'editor_script' => 'rozowe-studio-contact-form-editor',
         'editor_style'  => 'rozowe-studio-contact-form-editor',
-        'style'         => 'rozowe-studio-contact-form',
         'render_callback' => 'rozowe_studio_render_contact_form_block',
         'attributes' => array(
             'shortcode' => array(
