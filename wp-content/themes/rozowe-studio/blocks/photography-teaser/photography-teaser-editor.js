@@ -58,6 +58,10 @@
                 type: 'object',
                 default: null,
             },
+            sectionTitle: {
+                type: 'string',
+                default: '',
+            },
         },
 
         edit: function(props) {
@@ -118,12 +122,25 @@
                 });
             }
 
+            function onSectionTitleChange(value) {
+                setAttributes({
+                    sectionTitle: value
+                });
+            }
+
             return el(Fragment, {},
                 el(InspectorControls, {},
                     el(PanelBody, {
                         title: __('Content Settings', 'rozowe-studio'),
                         initialOpen: true
                     },
+                        el(TextControl, {
+                            label: __('Section Title', 'rozowe-studio'),
+                            value: attributes.sectionTitle,
+                            onChange: onSectionTitleChange,
+                            placeholder: __('Enter section title...', 'rozowe-studio'),
+                            help: __('This title will be visible only on tablet and mobile devices', 'rozowe-studio')
+                        }),
                         el(TextareaControl, {
                             label: __('Content', 'rozowe-studio'),
                             value: attributes.content,
@@ -236,6 +253,18 @@
                             fontWeight: '500'
                         }
                     }, __('Photography Teaser Block', 'rozowe-studio')),
+                    
+                    // Show section title if set
+                    attributes.sectionTitle && el('div', {
+                        style: {
+                            fontSize: '18px',
+                            fontWeight: '500',
+                            marginBottom: '10px',
+                            color: '#3a040f',
+                            borderBottom: '1px solid #e0dbd7',
+                            paddingBottom: '5px'
+                        }
+                    }, __('Section Title: ', 'rozowe-studio') + attributes.sectionTitle),
                     
                     // Show letter if set
                     attributes.letter && el('div', {

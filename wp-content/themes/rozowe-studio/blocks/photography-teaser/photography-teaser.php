@@ -71,6 +71,10 @@ function rozowe_studio_register_photography_teaser_block() {
                 'type' => 'object',
                 'default' => null,
             ),
+            'sectionTitle' => array(
+                'type' => 'string',
+                'default' => '',
+            ),
         ),
     ));
 }
@@ -88,6 +92,7 @@ function rozowe_studio_render_photography_teaser_block($attributes, $content) {
     $content_column_on_left = $attributes['contentColumnOnLeft'] ?? false;
     $letter_on_left = $attributes['letterOnLeft'] ?? false;
     $background_image = $attributes['backgroundImage'] ?? null;
+    $section_title = $attributes['sectionTitle'] ?? '';
 
     // Determine classes based on settings
     $content_left_class = $content_column_on_left ? 'content-column-left' : '';
@@ -119,6 +124,11 @@ function rozowe_studio_render_photography_teaser_block($attributes, $content) {
     }
     
     $block_html .= '<div class="photography-teaser-content-wrapper">';
+    
+    // Add section title if provided (visible only on tablet and mobile)
+    if ($section_title) {
+        $block_html .= '<h2 class="photography-teaser-section-title">' . esc_html($section_title) . '</h2>';
+    }
     
     // Add letter if provided and letter-on-left is false
     if ($letter && !$letter_on_left) {

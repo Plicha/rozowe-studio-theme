@@ -104,6 +104,24 @@
 }
 
 // =============================================================================
+// SECTION TITLE
+// =============================================================================
+
+.photography-teaser-section-title {
+    display: none; // Hidden by default (desktop)
+    font-size: $font-size-4xl; // 32px
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+    font-family: $font-heading;
+    margin-bottom: $spacing-sm;
+    line-height: $line-height-tight;
+    
+    @include tablet_and_mobile {
+        display: block; // Visible on tablet and mobile
+    }
+}
+
+// =============================================================================
 // CONTENT AREA
 // =============================================================================
 
@@ -196,7 +214,7 @@
         }
 
         .photography-teaser-image-column{
-            margin-bottom: $spacing-md;
+            margin-bottom: $spacing-sm;
         }
 
         .photography-teaser-content{
