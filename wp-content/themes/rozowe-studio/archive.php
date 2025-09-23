@@ -1,16 +1,45 @@
 <?php
 /**
- * The main template file (fallback)
+ * The template for displaying archive pages (posts listing)
  *
  * @package Różowe_Studio
  */
 
 get_header(); ?>
 
-<main id="main" class="site-main">
+<main id="main" class="site-main archive-page">
     <div class="container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="<?php echo home_url(); ?>">Home</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                        <path d="M1.5 1L6.5 6L1.5 11" stroke="#9A9192" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="<?php echo rozowe_studio_get_photography_page_url(); ?>">Fotografia</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                        <path d="M1.5 1L6.5 6L1.5 11" stroke="#9A9192" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <?php echo rozowe_studio_get_posts_page_title(); ?>
+                </li>
+            </ol>
+        </nav>
+
         <header class="page-header">
-            <h1 class="page-title">Reportaże Ślubne</h1>
+            <h1 class="page-title"><?php echo rozowe_studio_get_posts_page_title(); ?></h1>
+            <?php 
+            $posts_page_id = get_option('page_for_posts');
+            $page_description = $posts_page_id ? rozowe_studio_get_page_description($posts_page_id) : '';
+            
+            if ($page_description) : ?>
+                <p class="page-description"><?php echo esc_html($page_description); ?></p>
+            <?php else : ?>
+                <p class="page-description">Odkryj nasze najpiękniejsze sesje ślubne</p>
+            <?php endif; ?>
         </header>
 
         <?php if (have_posts()) : ?>
@@ -70,4 +99,4 @@ get_header(); ?>
     </div>
 </main>
 
-<?php get_footer(); ?> 
+<?php get_footer(); ?>

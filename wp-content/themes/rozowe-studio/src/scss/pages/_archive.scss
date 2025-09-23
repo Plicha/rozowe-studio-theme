@@ -1,0 +1,17 @@
+.archive-page{
+    .page-header{
+        .page-title{
+            font-weight: $font-weight-medium;
+            margin-bottom: $spacing-sm;
+            color: $color-primary;
+            text-align: left;
+            line-height: 1.2;
+        }
+        @include desktop{
+            .page-description{
+                max-width: 50%;
+                margin-bottom: $spacing-md;
+            }
+        }
+    }
+}
