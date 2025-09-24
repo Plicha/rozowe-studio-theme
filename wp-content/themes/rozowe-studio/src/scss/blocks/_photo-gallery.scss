@@ -83,7 +83,7 @@
 // Mobile responsiveness
 @include mobile {
     .photo-gallery-block, .photo-gallery-fullwidth {
-        padding: 0 0 $spacing-sm;
+        padding: $spacing-md 0 $spacing-sm;
     }
 
     .photo-gallery-row {
@@ -105,8 +105,8 @@
             
             .photo-gallery-item-three-equal,
             .photo-gallery-item-two-equal {
-                width: 100%;
-                height: 250px;
+                width: 100% !important;
+                height: 250px !important;
             }
         }
     }

@@ -28,6 +28,7 @@
         
         @include responsive(mobile) {
             grid-template-columns: 1fr;
+            padding-top: $spacing-md;
         }
     }
     
