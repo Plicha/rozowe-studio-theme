@@ -190,6 +190,25 @@
     }
 }
 
+.photography-teaser-social-media{
+    width: max-content;
+    padding-right: $spacing-xs;
+    background-color: $color-white-200;
+    p:first-of-type{
+        margin-bottom: $spacing-xs;
+    }
+    svg{
+        width: 24px;
+        height: 24px;
+    }
+    .social-media-link{
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        margin-bottom: $spacing-xs;
+    }
+}
+
 // =============================================================================
 // RESPONSIVE LAYOUT
 // =============================================================================

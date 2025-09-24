@@ -51,3 +51,31 @@ function rozowe_studio_pre_get_posts($query) {
     }
 }
 add_action('pre_get_posts', 'rozowe_studio_pre_get_posts');
+
+/**
+ * Get Facebook URL from customizer
+ */
+function rozowe_studio_get_facebook_url() {
+    return get_theme_mod('rozowe_studio_facebook_url', '');
+}
+
+/**
+ * Get Instagram URL from customizer
+ */
+function rozowe_studio_get_instagram_url() {
+    return get_theme_mod('rozowe_studio_instagram_url', '');
+}
+
+/**
+ * Check if Facebook URL is set
+ */
+function rozowe_studio_has_facebook() {
+    return !empty(get_theme_mod('rozowe_studio_facebook_url', ''));
+}
+
+/**
+ * Check if Instagram URL is set
+ */
+function rozowe_studio_has_instagram() {
+    return !empty(get_theme_mod('rozowe_studio_instagram_url', ''));
+}

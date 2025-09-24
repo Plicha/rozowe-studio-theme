@@ -62,6 +62,10 @@
                 type: 'string',
                 default: '',
             },
+            showSocialMedia: {
+                type: 'boolean',
+                default: false,
+            },
         },
 
         edit: function(props) {
@@ -125,6 +129,12 @@
             function onSectionTitleChange(value) {
                 setAttributes({
                     sectionTitle: value
+                });
+            }
+
+            function onShowSocialMediaChange(value) {
+                setAttributes({
+                    showSocialMedia: value
                 });
             }
 
@@ -203,6 +213,12 @@
                             checked: attributes.letterOnLeft,
                             onChange: onLetterOnLeftChange,
                             help: __('Positions the letter on the left side', 'rozowe-studio')
+                        }),
+                        el(CheckboxControl, {
+                            label: __('Show Social Media Links', 'rozowe-studio'),
+                            checked: attributes.showSocialMedia,
+                            onChange: onShowSocialMediaChange,
+                            help: __('Display Instagram and Facebook links in the content area', 'rozowe-studio')
                         })
                     ),
                     el(PanelBody, {
@@ -285,7 +301,8 @@
                         }
                     }, 
                         attributes.contentColumnOnLeft && __('Content on left', 'rozowe-studio'),
-                        attributes.letterOnLeft && ' • ' + __('Letter on left', 'rozowe-studio')
+                        attributes.letterOnLeft && ' • ' + __('Letter on left', 'rozowe-studio'),
+                        attributes.showSocialMedia && ' • ' + __('Social media enabled', 'rozowe-studio')
                     ),
                     
                     // Show content preview if available

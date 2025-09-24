@@ -1,0 +1,14 @@
+.jewelry-page {
+    overflow-x: hidden;
+    padding-top: $spacing-xl;
+    .photography-teaser-block{
+        .photography-teaser-letter{
+            font-size: 500px;
+            top: 54%;
+            left: 60%;
+        }
+        img{
+           min-height: 400px;
+       }
+    }
+}
