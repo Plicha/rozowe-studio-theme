@@ -341,3 +341,39 @@ function rozowe_studio_get_post_description($post_id = null) {
     $description = get_post_meta($post_id, '_page_description', true);
     return $description;
 }
+
+/**
+ * Add social media settings to WordPress Customizer
+ */
+function rozowe_studio_customize_register($wp_customize) {
+    // Add Social Media section
+    $wp_customize->add_section('rozowe_studio_social_media', array(
+        'title'    => __('Social Media', 'rozowe-studio'),
+        'priority' => 30,
+    ));
+    
+    // Facebook URL setting
+    $wp_customize->add_setting('rozowe_studio_facebook_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    
+    $wp_customize->add_control('rozowe_studio_facebook_url', array(
+        'label'   => __('Facebook URL', 'rozowe-studio'),
+        'section' => 'rozowe_studio_social_media',
+        'type'    => 'url',
+    ));
+    
+    // Instagram URL setting
+    $wp_customize->add_setting('rozowe_studio_instagram_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    
+    $wp_customize->add_control('rozowe_studio_instagram_url', array(
+        'label'   => __('Instagram URL', 'rozowe-studio'),
+        'section' => 'rozowe_studio_social_media',
+        'type'    => 'url',
+    ));
+}
+add_action('customize_register', 'rozowe_studio_customize_register');
