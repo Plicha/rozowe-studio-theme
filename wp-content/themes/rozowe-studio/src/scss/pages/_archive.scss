@@ -1,4 +1,6 @@
 .archive-page{
+    overflow-x: hidden;
+    padding-top: $spacing-xl;
     .page-header{
         .page-title{
             font-weight: $font-weight-medium;
@@ -13,5 +15,98 @@
                 margin-bottom: $spacing-md;
             }
         }
+    }
+    
+    .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-sm;
+        
+        @include responsive(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        @include responsive(mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .post-card {
+        height: 205px;
+        position: relative;
+        overflow: hidden;
+        
+        .post-card-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            position: relative;
+        }
+        
+        .post-thumbnail {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform $transition-normal;
+        }
+        
+        .post-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            transition: background-color $transition-normal;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba($color-burgundy-500, 0.6);
+                opacity: 0;
+                transition: opacity $transition-normal;
+            }
+        }
+        
+        .post-title {
+            font-size: $font-size-4xl;
+            font-weight: $font-weight-medium;
+            color: $color-white-100;
+            text-align: center;
+            margin: 0;
+            opacity: 0;
+            transition: opacity $transition-normal;
+            position: relative;
+            z-index: 1;
+            line-height: $line-height-tight;
+        }
+        
+        &:hover {
+            .post-thumbnail {
+                transform: scale(1.05);
+            }
+            
+            .post-overlay::before {
+                opacity: 1;
+            }
+            
+            .post-title {
+                opacity: 1;
+            }
+        }
+    }
+    
+    .page-content-after-posts {
+        margin-top: $spacing-xl;
     }
 }

@@ -46,37 +46,16 @@ get_header(); ?>
             <div class="posts-grid">
                 <?php while (have_posts()) : the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class('post-card'); ?>>
-                        <?php if (has_post_thumbnail()) : ?>
-                            <div class="post-thumbnail">
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php the_post_thumbnail('medium'); ?>
-                                </a>
-                            </div>
-                        <?php endif; ?>
-                        
-                        <div class="post-content">
-                            <header class="entry-header">
-                                <h2 class="entry-title">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </h2>
-                                
-                                <div class="entry-meta">
-                                    <span class="posted-on">
-                                        <?php echo get_the_date(); ?>
-                                    </span>
+                        <a href="<?php the_permalink(); ?>" class="post-card-link">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <div class="post-thumbnail" style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>');">
                                 </div>
-                            </header>
+                            <?php endif; ?>
                             
-                            <div class="entry-summary">
-                                <?php the_excerpt(); ?>
+                            <div class="post-overlay">
+                                <h2 class="post-title"><?php the_title(); ?></h2>
                             </div>
-                            
-                            <footer class="entry-footer">
-                                <a href="<?php the_permalink(); ?>" class="read-more">
-                                    Zobacz reportaż
-                                </a>
-                            </footer>
-                        </div>
+                        </a>
                     </article>
                 <?php endwhile; ?>
             </div>
@@ -96,6 +75,21 @@ get_header(); ?>
                 <p>Przepraszamy, ale nie znaleziono żadnych reportaży ślubnych.</p>
             </div>
         <?php endif; ?>
+
+        <?php
+        // Display Gutenberg blocks from the posts page
+        $posts_page_id = get_option('page_for_posts');
+        if ($posts_page_id) {
+            $posts_page = get_post($posts_page_id);
+            if ($posts_page && !empty($posts_page->post_content)) {
+                echo '<div class="page-content-after-posts">';
+                echo '<div class="container">';
+                echo apply_filters('the_content', $posts_page->post_content);
+                echo '</div>';
+                echo '</div>';
+            }
+        }
+        ?>
     </div>
 </main>
 
