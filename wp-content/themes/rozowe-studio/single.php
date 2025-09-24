@@ -55,15 +55,6 @@ get_header(); ?>
                 <div class="entry-content">
                     <?php the_content(); ?>
                 </div>
-
-                <footer class="entry-footer">
-                    
-                    <div class="back-to-archive">
-                        <a href="<?php echo get_post_type_archive_link('post'); ?>" class="btn btn-secondary">
-                            Wróć do wszystkich reportaży
-                        </a>
-                    </div>
-                </footer>
             </article>
         <?php endwhile; ?>
     </div>

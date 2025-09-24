@@ -1,0 +1,113 @@
+.photo-gallery-block {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 $spacing-2xl;
+}
+
+.photo-gallery-fullwidth {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 0 0 $spacing-2xl;
+}
+
+.photo-gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+}
+
+.photo-gallery-row {
+    display: flex;
+    gap: $spacing-sm;
+    height: 430px;
+}
+
+.photo-gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-gallery-item:hover {
+    transform: translateY(-4px);
+}
+
+.photo-gallery-item-small {
+    width: 36%;
+}
+
+.photo-gallery-item-large {
+    width: calc(64% - $spacing-sm);
+}
+
+.photo-gallery-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.photo-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+// Three column layout
+.photo-gallery-three-column {
+    .photo-gallery-row {
+        height: auto;
+        min-height: 550px;
+        
+        &:nth-child(odd) {
+            // Odd rows: 3 equal items
+            .photo-gallery-item-three-equal {
+                width: calc(33.333% - $spacing-sm * 2 / 3);
+                height: 550px;
+            }
+        }
+        
+        &:nth-child(even) {
+            // Even rows: 2 equal items
+            .photo-gallery-item-two-equal {
+                width: calc(50% - $spacing-sm / 2);
+                height: 1080px;
+            }
+        }
+    }
+}
+
+// Mobile responsiveness
+@include mobile {
+    .photo-gallery-block, .photo-gallery-fullwidth {
+        padding: 0 0 $spacing-sm;
+    }
+
+    .photo-gallery-row {
+        flex-direction: column;
+        height: auto;
+        gap: $spacing-sm;
+    }
+    
+    .photo-gallery-item-small,
+    .photo-gallery-item-large {
+        width: 100%;
+        height: 250px;
+    }
+    
+    // Three column layout on mobile
+    .photo-gallery-three-column {
+        .photo-gallery-row {
+            min-height: auto;
+            
+            .photo-gallery-item-three-equal,
+            .photo-gallery-item-two-equal {
+                width: 100%;
+                height: 250px;
+            }
+        }
+    }
+}
