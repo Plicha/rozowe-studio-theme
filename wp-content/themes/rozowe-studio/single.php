@@ -7,20 +7,29 @@
 
 get_header(); ?>
 
-<main id="main" class="site-main single-post">
+<main id="main" class="site-main archive-page single-post">
     <div class="container">
         <nav class="breadcrumbs" aria-label="breadcrumb">
             <ol class="breadcrumb-list">
                 <li class="breadcrumb-item">
                     <a href="<?php echo home_url(); ?>">Home</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                        <path d="M1.5 1L6.5 6L1.5 11" stroke="#9A9192" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo rozowe_studio_get_photography_page_url(); ?>">Fotografia</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                        <path d="M1.5 1L6.5 6L1.5 11" stroke="#9A9192" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo get_post_type_archive_link('post'); ?>">
                         <?php echo rozowe_studio_get_posts_page_title(); ?>
                     </a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                        <path d="M1.5 1L6.5 6L1.5 11" stroke="#9A9192" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <?php the_title(); ?>
@@ -28,44 +37,26 @@ get_header(); ?>
             </ol>
         </nav>
 
+        
+
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <header class="entry-header">
-                    <h1 class="entry-title"><?php the_title(); ?></h1>
+                <header class="page-header">
+                    <h1 class="page-title"><?php the_title(); ?></h1>
+                    <?php
+                    // Display post description from the current post
+                    $post_description = rozowe_studio_get_post_description();
                     
-                    <div class="entry-meta">
-                        <span class="posted-on">
-                            <?php echo get_the_date(); ?>
-                        </span>
-                    </div>
-                </header>
-
-                <?php if (has_post_thumbnail()) : ?>
-                    <div class="post-thumbnail">
-                        <?php the_post_thumbnail('large'); ?>
-                    </div>
-                <?php endif; ?>
+                    if ($post_description) : ?>
+                        <p class="page-description"><?php echo esc_html($post_description); ?></p>
+                    <?php endif; ?>
+                </header>   
 
                 <div class="entry-content">
-                    <?php
-                    the_content();
-                    
-                    wp_link_pages(array(
-                        'before' => '<div class="page-links">' . esc_html__('Strony:', 'rozowe-studio'),
-                        'after'  => '</div>',
-                    ));
-                    ?>
+                    <?php the_content(); ?>
                 </div>
 
                 <footer class="entry-footer">
-                    <nav class="post-navigation">
-                        <div class="nav-previous">
-                            <?php previous_post_link('%link', '&laquo; Poprzedni reportaż'); ?>
-                        </div>
-                        <div class="nav-next">
-                            <?php next_post_link('%link', 'Następny reportaż &raquo;'); ?>
-                        </div>
-                    </nav>
                     
                     <div class="back-to-archive">
                         <a href="<?php echo get_post_type_archive_link('post'); ?>" class="btn btn-secondary">

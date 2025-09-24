@@ -272,7 +272,7 @@ function rozowe_studio_add_page_description_meta_box() {
         'page-description',
         'Page Description',
         'rozowe_studio_page_description_meta_box_callback',
-        'page',
+        array('page', 'post'),
         'side',
         'default'
     );
@@ -322,6 +322,18 @@ add_action('save_post', 'rozowe_studio_save_page_description');
  * Helper function to get page description
  */
 function rozowe_studio_get_page_description($post_id = null) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    
+    $description = get_post_meta($post_id, '_page_description', true);
+    return $description;
+}
+
+/**
+ * Helper function to get post description (for individual posts)
+ */
+function rozowe_studio_get_post_description($post_id = null) {
     if (!$post_id) {
         $post_id = get_the_ID();
     }
