@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file
+ * The main template file (fallback)
  *
  * @package Różowe_Studio
  */
@@ -9,6 +9,10 @@ get_header(); ?>
 
 <main id="main" class="site-main">
     <div class="container">
+        <header class="page-header">
+            <h1 class="page-title">Reportaże Ślubne</h1>
+        </header>
+
         <?php if (have_posts()) : ?>
             <div class="posts-grid">
                 <?php while (have_posts()) : the_post(); ?>
@@ -31,9 +35,6 @@ get_header(); ?>
                                     <span class="posted-on">
                                         <?php echo get_the_date(); ?>
                                     </span>
-                                    <span class="byline">
-                                        <?php echo get_the_author(); ?>
-                                    </span>
                                 </div>
                             </header>
                             
@@ -43,7 +44,7 @@ get_header(); ?>
                             
                             <footer class="entry-footer">
                                 <a href="<?php the_permalink(); ?>" class="read-more">
-                                    Czytaj więcej
+                                    Zobacz reportaż
                                 </a>
                             </footer>
                         </div>
@@ -62,8 +63,8 @@ get_header(); ?>
             
         <?php else : ?>
             <div class="no-posts">
-                <h2>Nie znaleziono postów</h2>
-                <p>Przepraszamy, ale nie znaleziono żadnych postów spełniających kryteria.</p>
+                <h2>Nie znaleziono reportaży</h2>
+                <p>Przepraszamy, ale nie znaleziono żadnych reportaży ślubnych.</p>
             </div>
         <?php endif; ?>
     </div>

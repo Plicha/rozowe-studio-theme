@@ -11,6 +11,51 @@
     }
 }
 
+// Breadcrumbs
+.breadcrumbs {
+    margin-bottom: $spacing-sm;
+    padding: $spacing-sm 0;
+    
+    .breadcrumb-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: $spacing-sm;
+        
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            font-size: $font-size-sm;
+            color: $color-text-secondary;
+            gap: $spacing-sm;
+            margin-bottom: 0;
+            
+            svg {
+                height: 10px;
+                width: auto;
+            }
+            
+            a {
+                color: $color-text-secondary;
+                text-decoration: none;
+                transition: color $transition-fast;
+                
+                &:hover {
+                    color: $color-primary;
+                    text-decoration: underline;
+                }
+            }
+            
+            &.active {
+                color: $color-text-primary;
+                font-weight: $font-weight-medium;
+            }
+        }
+    }
+}
+
 .main-navigation ul {
     @include responsive(mobile) {
         display: none;
