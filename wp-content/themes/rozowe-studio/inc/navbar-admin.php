@@ -303,7 +303,16 @@ function rozowe_studio_display_navbar() {
     <nav class="custom-navbar">
         <div class="container">
             <div class="navbar-content">
-                <!-- Left menu items -->
+                <!-- Mobile toggle button -->
+                <button class="navbar-toggle" aria-label="Toggle mobile menu">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+                
+                <!-- Left menu items (desktop) -->
                 <div class="navbar-left">
                     <?php foreach ($left_items as $item): ?>
                         <a href="<?php echo esc_url($item['url']); ?>" class="navbar-item">
@@ -326,7 +335,7 @@ function rozowe_studio_display_navbar() {
                     <?php endif; ?>
                 </div>
                 
-                <!-- Right menu items -->
+                <!-- Right menu items (desktop) -->
                 <div class="navbar-right">
                     <?php foreach ($right_items as $item): ?>
                         <a href="<?php echo esc_url($item['url']); ?>" class="navbar-item">
@@ -334,6 +343,29 @@ function rozowe_studio_display_navbar() {
                         </a>
                     <?php endforeach; ?>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu overlay -->
+        <div class="navbar-mobile-overlay"></div>
+        <div class="navbar-mobile-menu">
+            <div class="navbar-mobile-header">
+                <div class="navbar-mobile-logo">
+                    <?php if ($logo): ?>
+                        <img src="<?php echo esc_url($logo['url']); ?>" 
+                             alt="<?php echo esc_attr($logo['alt'] ? $logo['alt'] : get_bloginfo('name')); ?>" />
+                    <?php else: ?>
+                        <span class="navbar-logo-text"><?php bloginfo('name'); ?></span>
+                    <?php endif; ?>
+                </div>
+            </div>
+            
+            <div class="navbar-mobile-items">
+                <?php foreach ($menu_items as $item): ?>
+                    <a href="<?php echo esc_url($item['url']); ?>" class="navbar-item">
+                        <?php echo esc_html($item['title']); ?>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
     </nav>

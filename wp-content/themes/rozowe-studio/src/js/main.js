@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initForms();
     initBlocks();
     initStickyNavbar();
+    initMobileNavbar();
 });
 
 // Navigation functionality
@@ -93,6 +94,54 @@ function initStickyNavbar() {
     handleScroll();
 }
 
+// Mobile navbar functionality
+function initMobileNavbar() {
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const mobileMenu = document.querySelector('.navbar-mobile-menu');
+    const mobileOverlay = document.querySelector('.navbar-mobile-overlay');
+    
+    if (!navbarToggle || !mobileMenu || !mobileOverlay) return;
+    
+    function openMobileMenu() {
+        navbarToggle.classList.add('active');
+        mobileMenu.classList.add('active');
+        mobileOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenu() {
+        navbarToggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Toggle mobile menu
+    navbarToggle.addEventListener('click', function() {
+        if (mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    });
+    
+    // Close on overlay click
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+    
+    // Close on menu item click
+    const menuItems = mobileMenu.querySelectorAll('.navbar-item');
+    menuItems.forEach(item => {
+        item.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+}
+
 // Utility functions
 function debounce(func, wait) {
     let timeout;
@@ -107,4 +156,4 @@ function debounce(func, wait) {
 }
 
 // Export for use in other modules
-export { initNavigation, initForms, initBlocks, initStickyNavbar, debounce };
+export { initNavigation, initForms, initBlocks, initStickyNavbar, initMobileNavbar, debounce };
