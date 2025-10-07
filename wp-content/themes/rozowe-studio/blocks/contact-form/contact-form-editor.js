@@ -29,6 +29,10 @@
                 type: 'string',
                 default: '',
             },
+            blockId: {
+                type: 'string',
+                default: '',
+            },
         },
 
         edit: function(props) {
@@ -36,6 +40,7 @@
             var setAttributes = props.setAttributes;
             var shortcode = attributes.shortcode;
             var title = attributes.title;
+            var blockId = attributes.blockId;
 
             function onShortcodeChange(value) {
                 setAttributes({ shortcode: value });
@@ -43,6 +48,10 @@
 
             function onTitleChange(value) {
                 setAttributes({ title: value });
+            }
+
+            function onBlockIdChange(value) {
+                setAttributes({ blockId: value });
             }
 
             return el(Fragment, {},
@@ -60,6 +69,13 @@
                             value: title,
                             onChange: onTitleChange,
                             placeholder: __('Enter form title...', 'rozowe-studio')
+                        }),
+                        el(TextControl, {
+                            label: __('Block ID', 'rozowe-studio'),
+                            value: blockId,
+                            onChange: onBlockIdChange,
+                            placeholder: __('contact', 'rozowe-studio'),
+                            help: __('Optional: Add an ID to this block for anchor links (e.g., #contact)', 'rozowe-studio')
                         })
                     )
                 ),

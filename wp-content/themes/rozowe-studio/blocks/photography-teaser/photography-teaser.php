@@ -39,6 +39,10 @@ function rozowe_studio_register_photography_teaser_block() {
         'editor_script' => 'rozowe-studio-photography-teaser-editor',
         'render_callback' => 'rozowe_studio_render_photography_teaser_block',
         'attributes' => array(
+            'blockId' => array(
+                'type' => 'string',
+                'default' => '',
+            ),
             'letter' => array(
                 'type' => 'string',
                 'default' => '',
@@ -88,6 +92,7 @@ add_action('init', 'rozowe_studio_register_photography_teaser_block');
  * Render Photography Teaser Block
  */
 function rozowe_studio_render_photography_teaser_block($attributes, $content) {
+    $block_id = $attributes['blockId'] ?? '';
     $letter = $attributes['letter'] ?? '';
     $block_content = $attributes['content'] ?? '';
     $link_url = $attributes['linkUrl'] ?? '';
@@ -108,8 +113,9 @@ function rozowe_studio_render_photography_teaser_block($attributes, $content) {
 
     // Build the final HTML
     $block_classes = 'photography-teaser-block bg-white-200 ' . $content_left_class . ' ' . $letter_left_class;
+    $block_id_attr = $block_id ? ' id="' . esc_attr($block_id) . '"' : '';
     
-    $block_html = '<div class="' . esc_attr($block_classes) . '">';
+    $block_html = '<div class="' . esc_attr($block_classes) . '"' . $block_id_attr . '>';
     $block_html .= '<div class="container">';
     $block_html .= '<div class="grid">';
     

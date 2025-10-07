@@ -25,6 +25,10 @@
             __('lightbox', 'rozowe-studio'),
         ],
         attributes: {
+            blockId: {
+                type: 'string',
+                default: '',
+            },
             images: {
                 type: 'array',
                 default: [],
@@ -38,6 +42,12 @@
         edit: function(props) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
+
+            function onBlockIdChange(value) {
+                setAttributes({
+                    blockId: value
+                });
+            }
 
             function onSelectImages(media) {
                 var selectedImages = media.map(function(item) {
@@ -91,6 +101,13 @@
                         title: __('Gallery Settings', 'rozowe-studio'),
                         initialOpen: true
                     },
+                        el(components.TextControl, {
+                            label: __('Block ID', 'rozowe-studio'),
+                            value: attributes.blockId,
+                            onChange: onBlockIdChange,
+                            placeholder: __('gallery', 'rozowe-studio'),
+                            help: __('Optional: Add an ID to this block for anchor links (e.g., #gallery)', 'rozowe-studio')
+                        }),
                         el(MediaUploadCheck, {},
                             el(MediaUpload, {
                                 onSelect: onSelectImages,

@@ -1,8 +1,43 @@
 // Responsive
-@include responsive(mobile) {
+@include tablet_and_mobile {
     .main-navigation ul {
         flex-direction: column;
         gap: $spacing-sm;
+    }
+    
+    // Custom Navbar Mobile
+    .custom-navbar {
+        height: 80px;
+        margin-bottom: -80px;
+        
+        .navbar-content {
+            justify-content: space-between;
+        }
+        
+        // Hide desktop menu items
+        .navbar-left,
+        .navbar-right {
+            display: none;
+        }
+        
+        // Show mobile toggle button
+        .navbar-toggle {
+            display: block;
+        }
+        
+        // Center logo on mobile
+        .navbar-center {
+            position: static;
+            transform: none;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .navbar-logo img {
+            height: 40px;
+            max-width: 200px;
+        }
     }
     
     .container {

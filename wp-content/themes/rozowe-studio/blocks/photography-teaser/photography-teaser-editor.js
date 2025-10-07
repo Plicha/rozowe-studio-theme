@@ -26,6 +26,10 @@
             __('content', 'rozowe-studio'),
         ],
         attributes: {
+            blockId: {
+                type: 'string',
+                default: '',
+            },
             letter: {
                 type: 'string',
                 default: '',
@@ -71,6 +75,12 @@
         edit: function(props) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
+
+            function onBlockIdChange(value) {
+                setAttributes({
+                    blockId: value
+                });
+            }
 
             function onLetterChange(value) {
                 setAttributes({
@@ -158,6 +168,13 @@
                             placeholder: __('Add your content here...', 'rozowe-studio'),
                             rows: 6,
                             help: __('Enter the main content for this block', 'rozowe-studio')
+                        }),
+                        el(TextControl, {
+                            label: __('Block ID', 'rozowe-studio'),
+                            value: attributes.blockId,
+                            onChange: onBlockIdChange,
+                            placeholder: __('photography', 'rozowe-studio'),
+                            help: __('Optional: Add an ID to this block for anchor links (e.g., #photography)', 'rozowe-studio')
                         })
                     ),
                     el(PanelBody, {

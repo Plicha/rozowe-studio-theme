@@ -23,6 +23,10 @@
             __('two-column', 'rozowe-studio'),
         ],
         attributes: {
+            blockId: {
+                type: 'string',
+                default: '',
+            },
             image: {
                 type: 'object',
                 default: null,
@@ -49,8 +53,26 @@
                 });
             }
 
+            function onBlockIdChange(value) {
+                setAttributes({
+                    blockId: value
+                });
+            }
+
             return el(Fragment, {},
                 el(InspectorControls, {},
+                    el(PanelBody, {
+                        title: __('Block Settings', 'rozowe-studio'),
+                        initialOpen: true
+                    },
+                        el(components.TextControl, {
+                            label: __('Block ID', 'rozowe-studio'),
+                            value: attributes.blockId,
+                            onChange: onBlockIdChange,
+                            placeholder: __('story', 'rozowe-studio'),
+                            help: __('Optional: Add an ID to this block for anchor links (e.g., #story)', 'rozowe-studio')
+                        })
+                    ),
                     el(PanelBody, {
                         title: __('Image Settings', 'rozowe-studio'),
                         initialOpen: true

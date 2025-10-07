@@ -57,6 +57,10 @@ function rozowe_studio_register_main_banner_block() {
         'style'         => 'rozowe-studio-main-banner',
         'render_callback' => 'rozowe_studio_render_main_banner_block',
         'attributes' => array(
+            'blockId' => array(
+                'type' => 'string',
+                'default' => '',
+            ),
             'backgroundImage' => array(
                 'type' => 'object',
                 'default' => null,
@@ -78,6 +82,7 @@ add_action('init', 'rozowe_studio_register_main_banner_block');
  * Render Main Banner Block
  */
 function rozowe_studio_render_main_banner_block($attributes) {
+    $block_id = $attributes['blockId'] ?? '';
     $background_image = $attributes['backgroundImage'] ?? null;
     $center_image = $attributes['centerImage'] ?? null;
     $center_image_alt = $attributes['centerImageAlt'] ?? '';
@@ -91,7 +96,7 @@ function rozowe_studio_render_main_banner_block($attributes) {
 
     ob_start();
     ?>
-    <div class="main-banner-block"<?php echo $background_url ? ' style="background-image: url(\'' . esc_url($background_url) . '\');"' : ''; ?>>
+    <div class="main-banner-block"<?php echo $background_url ? ' style="background-image: url(\'' . esc_url($background_url) . '\');"' : ''; ?><?php echo $block_id ? ' id="' . esc_attr($block_id) . '"' : ''; ?>>
         <?php if ($center_url): ?>
             <div class="main-banner-content">
                 <?php if ($is_svg): ?>
