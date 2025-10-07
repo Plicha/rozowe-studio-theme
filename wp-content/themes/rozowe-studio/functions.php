@@ -17,6 +17,7 @@ require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/assets.php';
 require_once get_template_directory() . '/inc/widgets.php';
 require_once get_template_directory() . '/inc/navigation.php';
+require_once get_template_directory() . '/inc/navbar-admin.php';
 require_once get_template_directory() . '/inc/security.php';
 require_once get_template_directory() . '/inc/homepage.php';
 require_once get_template_directory() . '/inc/helpers.php';

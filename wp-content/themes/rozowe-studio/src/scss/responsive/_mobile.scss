@@ -5,6 +5,35 @@
         gap: $spacing-sm;
     }
     
+    // Custom Navbar Mobile
+    .custom-navbar {
+        .navbar-content {
+            flex-direction: column;
+            gap: $spacing-sm;
+        }
+        
+        .navbar-left,
+        .navbar-right {
+            justify-content: center;
+            flex: none;
+        }
+        
+        .navbar-center {
+            position: static;
+            transform: none;
+            order: -1;
+        }
+        
+        .navbar-logo img {
+            max-height: 50px;
+        }
+        
+        .navbar-item {
+            padding: $spacing-xs $spacing-md;
+            font-size: 0.9rem;
+        }
+    }
+    
     .container {
         padding: 0 15px;
     }

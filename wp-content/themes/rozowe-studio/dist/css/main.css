@@ -2429,11 +2429,98 @@ input.success:focus, textarea.success:focus, select.success:focus {
   }
 }
 
-.site-header {
-  background-color: #fff;
-  padding: 16px 0;
-  display: none;
-  box-shadow: 0 2px 5px #0000001a;
+.custom-navbar {
+  z-index: 1000;
+  opacity: 0;
+  background-color: #0000;
+  align-items: center;
+  height: 116px;
+  margin-bottom: -116px;
+  padding: 0;
+  transition: opacity .3s;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.custom-navbar .container {
+  width: 100%;
+}
+
+.custom-navbar.is-sticky {
+  opacity: 1;
+  background-color: #f4f5f1;
+}
+
+.custom-navbar .navbar-content {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.custom-navbar .navbar-left, .custom-navbar .navbar-right {
+  flex: 1;
+  gap: 32px;
+  display: flex;
+}
+
+.custom-navbar .navbar-left {
+  justify-content: flex-start;
+}
+
+.custom-navbar .navbar-right {
+  justify-content: flex-end;
+}
+
+.custom-navbar .navbar-center {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.custom-navbar .navbar-logo {
+  text-decoration: none;
+  display: block;
+}
+
+.custom-navbar .navbar-logo img {
+  object-fit: contain;
+  width: 100%;
+  max-width: 333px;
+  height: 52px;
+  display: block;
+}
+
+.custom-navbar .navbar-logo.navbar-logo-text {
+  color: #3a040f;
+  transition: color .25s ease-in-out ease-in-out;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.custom-navbar .navbar-logo.navbar-logo-text:hover {
+  color: #9a9192;
+}
+
+.custom-navbar .navbar-item {
+  color: #140d0d;
+  text-transform: uppercase;
+  transition: all .25s ease-in-out ease-in-out;
+  border-bottom: 1px solid #0000;
+  padding: 8px 16px;
+  font-family: EB Garamond, Georgia, Times New Roman, serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.custom-navbar .navbar-item:hover {
+  color: #3a040f;
+  border-bottom-color: #3a040f;
 }
 
 .site-title {
@@ -2642,9 +2729,29 @@ input.success:focus, textarea.success:focus, select.success:focus {
     margin-bottom: 0;
   }
 
-  .main-navigation ul {
+  .main-navigation ul, .custom-navbar .navbar-content {
     flex-direction: column;
     gap: 16px;
+  }
+
+  .custom-navbar .navbar-left, .custom-navbar .navbar-right {
+    flex: none;
+    justify-content: center;
+  }
+
+  .custom-navbar .navbar-center {
+    order: -1;
+    position: static;
+    transform: none;
+  }
+
+  .custom-navbar .navbar-logo img {
+    max-height: 50px;
+  }
+
+  .custom-navbar .navbar-item {
+    padding: 8px 32px;
+    font-size: .9rem;
   }
 
   .container {
