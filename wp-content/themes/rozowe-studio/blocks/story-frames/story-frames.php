@@ -60,6 +60,10 @@ function rozowe_studio_register_story_frames_block() {
         'style'         => 'rozowe-studio-story-frames',
         'render_callback' => 'rozowe_studio_render_story_frames_block',
         'attributes' => array(
+            'blockId' => array(
+                'type' => 'string',
+                'default' => '',
+            ),
             'image' => array(
                 'type' => 'object',
                 'default' => null,
@@ -84,6 +88,7 @@ add_action('init', 'rozowe_studio_register_story_frames_block');
  * Render Story Frames Block (for image handling)
  */
 function rozowe_studio_render_story_frames_block($attributes, $content) {
+    $block_id = $attributes['blockId'] ?? '';
     $image = $attributes['image'] ?? null;
     $image_alt = $attributes['imageAlt'] ?? '';
 
@@ -98,6 +103,11 @@ function rozowe_studio_render_story_frames_block($attributes, $content) {
         if (count($parts) >= 2) {
             $content = $parts[0] . '<div class="grid-col-6">' . $image_html . $parts[1];
         }
+    }
+
+    // Wrap content with ID if provided
+    if ($block_id) {
+        $content = '<div id="' . esc_attr($block_id) . '">' . $content . '</div>';
     }
 
     return $content;

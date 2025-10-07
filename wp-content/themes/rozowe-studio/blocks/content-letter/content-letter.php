@@ -75,6 +75,10 @@ function rozowe_studio_register_content_letter_block() {
                 'type' => 'boolean',
                 'default' => false,
             ),
+            'blockId' => array(
+                'type' => 'string',
+                'default' => '',
+            ),
             'backgroundImage' => array(
                 'type' => 'object',
                 'default' => null,
@@ -108,6 +112,7 @@ function rozowe_studio_render_content_letter_block($attributes, $content) {
     $background_image = $attributes['backgroundImage'] ?? null;
     $section_title = $attributes['sectionTitle'] ?? '';
     $mobile_background_image = $attributes['mobileBackgroundImage'] ?? null;
+    $block_id = $attributes['blockId'] ?? '';
 
     // Get background image URL
     $background_url = $background_image ? $background_image['url'] : '';
@@ -209,8 +214,9 @@ function rozowe_studio_render_content_letter_block($attributes, $content) {
     // Build the final HTML
     $block_classes = 'content-letter-block ' . $background_class . ' ' . $text_class . ' ' . $background_position_class . ' ' . $background_full_width_class . ' ' . $content_right_class;
     $block_style = $background_url ? ' style="background-image: url(\'' . esc_url($background_url) . '\');"' : '';
+    $block_id_attr = $block_id ? ' id="' . esc_attr($block_id) . '"' : '';
     
-    $block_html = '<div class="' . esc_attr($block_classes) . '"' . $block_style . '>';
+    $block_html = '<div class="' . esc_attr($block_classes) . '"' . $block_style . $block_id_attr . '>';
     $block_html .= '<div class="container">';
     $block_html .= '<div class="grid">';
     

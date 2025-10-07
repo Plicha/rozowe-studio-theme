@@ -23,6 +23,10 @@
             __('fullscreen', 'rozowe-studio'),
         ],
         attributes: {
+            blockId: {
+                type: 'string',
+                default: '',
+            },
             backgroundImage: {
                 type: 'object',
                 default: null,
@@ -59,6 +63,12 @@
                 });
             }
 
+            function onBlockIdChange(value) {
+                setAttributes({
+                    blockId: value
+                });
+            }
+
             function onRemoveCenterImage() {
                 setAttributes({
                     centerImage: null
@@ -67,6 +77,18 @@
 
             return el(Fragment, {},
                 el(InspectorControls, {},
+                    el(PanelBody, {
+                        title: __('Block Settings', 'rozowe-studio'),
+                        initialOpen: true
+                    },
+                        el(components.TextControl, {
+                            label: __('Block ID', 'rozowe-studio'),
+                            value: attributes.blockId,
+                            onChange: onBlockIdChange,
+                            placeholder: __('hero', 'rozowe-studio'),
+                            help: __('Optional: Add an ID to this block for anchor links (e.g., #hero)', 'rozowe-studio')
+                        })
+                    ),
                     el(PanelBody, {
                         title: __('Background Image', 'rozowe-studio'),
                         initialOpen: true

@@ -93,6 +93,10 @@ function rozowe_studio_register_photo_gallery_block() {
         'script'        => 'rozowe-studio-photo-gallery-frontend',
         'render_callback' => 'rozowe_studio_render_photo_gallery_block',
         'attributes' => array(
+            'blockId' => array(
+                'type' => 'string',
+                'default' => '',
+            ),
             'images' => array(
                 'type' => 'array',
                 'default' => array(),
@@ -110,6 +114,7 @@ add_action('init', 'rozowe_studio_register_photo_gallery_block');
  * Render Photo Gallery Block
  */
 function rozowe_studio_render_photo_gallery_block($attributes, $content) {
+    $block_id = $attributes['blockId'] ?? '';
     $images = $attributes['images'] ?? array();
     $three_column_layout = $attributes['threeColumnLayout'] ?? false;
     
@@ -117,7 +122,7 @@ function rozowe_studio_render_photo_gallery_block($attributes, $content) {
         return '';
     }
 
-    $output = '<div class="photo-gallery-block photo-gallery-fullwidth">';
+    $output = '<div class="photo-gallery-block photo-gallery-fullwidth"' . ($block_id ? ' id="' . esc_attr($block_id) . '"' : '') . '>';
     $output .= '<div class="photo-gallery-container' . ($three_column_layout ? ' photo-gallery-three-column' : '') . '">';
     
     if ($three_column_layout) {

@@ -63,6 +63,10 @@
                 type: 'boolean',
                 default: false,
             },
+            blockId: {
+                type: 'string',
+                default: '',
+            },
             backgroundImage: {
                 type: 'object',
                 default: null,
@@ -108,6 +112,12 @@
             function onLinkUrlChange(value) {
                 setAttributes({
                     linkUrl: value
+                });
+            }
+
+            function onBlockIdChange(value) {
+                setAttributes({
+                    blockId: value
                 });
             }
 
@@ -185,6 +195,13 @@
                             placeholder: __('Add your content here...', 'rozowe-studio'),
                             rows: 6,
                             help: __('Enter the main content for this block', 'rozowe-studio')
+                        }),
+                        el(TextControl, {
+                            label: __('Block ID', 'rozowe-studio'),
+                            value: attributes.blockId,
+                            onChange: onBlockIdChange,
+                            placeholder: __('about', 'rozowe-studio'),
+                            help: __('Optional: Add an ID to this block for anchor links (e.g., #about)', 'rozowe-studio')
                         })
                     ),
                     el(PanelBody, {

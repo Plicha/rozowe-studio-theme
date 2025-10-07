@@ -57,6 +57,10 @@ function rozowe_studio_register_contact_form_block() {
                 'type' => 'string',
                 'default' => '',
             ),
+            'blockId' => array(
+                'type' => 'string',
+                'default' => '',
+            ),
         ),
     ));
 }
@@ -68,6 +72,7 @@ add_action('init', 'rozowe_studio_register_contact_form_block');
 function rozowe_studio_render_contact_form_block($attributes) {
     $shortcode = $attributes['shortcode'] ?? '';
     $title = $attributes['title'] ?? '';
+    $blockId = $attributes['blockId'] ?? '';
 
     // Check if Contact Form 7 is active
     if (!function_exists('wpcf7_contact_form')) {
@@ -86,7 +91,7 @@ function rozowe_studio_render_contact_form_block($attributes) {
 
     ob_start();
     ?>
-    <div class="contact-form-block">
+    <div class="contact-form-block"<?php echo $blockId ? ' id="' . esc_attr($blockId) . '"' : ''; ?>>
         <?php if ($title): ?>
             <h2 class="contact-form-title"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
