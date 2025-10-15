@@ -55,6 +55,16 @@ get_header(); ?>
                 <div class="entry-content">
                     <?php the_content(); ?>
                 </div>
+                
+                <!-- Contact Form Section -->
+                <section class="contact-form-section" id="contact">
+                    <div class="contact-form-block">
+                        <h2 class="contact-form-title">Kontakt</h2>
+                        <div class="contact-form-wrapper">
+                            <?php echo do_shortcode('[contact-form-7 id="0dc33f6" title="Kontakt"]'); ?>
+                        </div>
+                    </div>
+                </section>
             </article>
         <?php endwhile; ?>
     </div>
