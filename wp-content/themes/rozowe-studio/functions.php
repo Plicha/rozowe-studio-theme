@@ -31,3 +31,15 @@ require_once get_template_directory() . '/blocks/content-letter/content-letter.p
 require_once get_template_directory() . '/blocks/contact-form/contact-form.php';
 require_once get_template_directory() . '/blocks/photography-teaser/photography-teaser.php';
 require_once get_template_directory() . '/blocks/photo-gallery/photo-gallery.php';
+
+/**
+ * Set posts per page for archive pages
+ */
+function rozowe_studio_set_posts_per_page($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        if (is_home() || is_archive()) {
+            $query->set('posts_per_page', 90);
+        }
+    }
+}
+add_action('pre_get_posts', 'rozowe_studio_set_posts_per_page');
