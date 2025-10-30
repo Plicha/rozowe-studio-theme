@@ -14,29 +14,6 @@
 <!-- Sticky Navbar outside of #page for better sticky behavior -->
 <?php rozowe_studio_display_navbar(); ?>
 
-<script>
-// Fallback sticky navbar JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.querySelector('.custom-navbar');
-    if (!navbar) return;
-    
-    const navbarHeight = navbar.offsetHeight;
-    
-    function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > navbarHeight) {
-            navbar.classList.add('is-sticky');
-        } else {
-            navbar.classList.remove('is-sticky');
-        }
-    }
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-});
-</script>
-
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e('Skip to content', 'rozowe-studio'); ?></a>
 

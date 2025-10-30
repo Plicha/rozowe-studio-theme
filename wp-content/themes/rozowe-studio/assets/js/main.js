@@ -28,14 +28,6 @@
             }
         });
 
-        // Add scroll class to header
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
-                $('.site-header').addClass('scrolled');
-            } else {
-                $('.site-header').removeClass('scrolled');
-            }
-        });
 
         // Lazy loading for images
         if ('IntersectionObserver' in window) {

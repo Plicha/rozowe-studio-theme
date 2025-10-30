@@ -389,7 +389,7 @@ function rozowe_studio_display_navbar() {
     }
     
     ?>
-    <nav class="custom-navbar">
+    <nav class="custom-navbar is-sticky">
         <div class="container">
             <div class="navbar-content">
                 <!-- Mobile toggle button -->
