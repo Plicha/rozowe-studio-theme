@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initForms();
     initBlocks();
-    initStickyNavbar();
     initMobileNavbar();
 });
 
@@ -46,52 +45,6 @@ function initBlocks() {
         // Add any block-specific functionality
         console.log('Block initialized:', block);
     });
-}
-
-// Sticky navbar functionality
-function initStickyNavbar() {
-    const navbar = document.querySelector('.custom-navbar');
-    
-    console.log('initStickyNavbar called, navbar found:', navbar);
-    
-    if (!navbar) {
-        console.log('Navbar not found!');
-        return;
-    }
-    
-    const navbarHeight = navbar.offsetHeight;
-    console.log('Navbar height:', navbarHeight);
-    
-    function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        console.log('Scroll position:', scrollTop, 'Navbar height:', navbarHeight);
-        
-        if (scrollTop > navbarHeight) {
-            navbar.classList.add('is-sticky');
-            console.log('Added is-sticky class');
-        } else {
-            navbar.classList.remove('is-sticky');
-            console.log('Removed is-sticky class');
-        }
-    }
-    
-    // Throttle scroll events for better performance
-    let ticking = false;
-    function updateNavbar() {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                handleScroll();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-    
-    window.addEventListener('scroll', updateNavbar);
-    
-    // Initial check
-    handleScroll();
 }
 
 // Mobile navbar functionality
@@ -156,4 +109,4 @@ function debounce(func, wait) {
 }
 
 // Export for use in other modules
-export { initNavigation, initForms, initBlocks, initStickyNavbar, initMobileNavbar, debounce };
+export { initNavigation, initForms, initBlocks, initMobileNavbar, debounce };
